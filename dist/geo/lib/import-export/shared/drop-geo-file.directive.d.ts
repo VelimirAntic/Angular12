@@ -1,0 +1,36 @@
+import { EventEmitter, OnInit, OnDestroy } from '@angular/core';
+import { MessageService, LanguageService, ConfigService } from '@igo2/core';
+import { DragAndDropDirective } from '@igo2/common';
+import { IgoMap } from '../../map/shared/map';
+import { MapBrowserComponent } from '../../map/map-browser/map-browser.component';
+import { ImportService } from './import.service';
+import { StyleService } from '../../layer/shared/style.service';
+import { StyleListService } from '../style-list/style-list.service';
+import * as i0 from "@angular/core";
+export declare class DropGeoFileDirective extends DragAndDropDirective implements OnInit, OnDestroy {
+    private component;
+    private importService;
+    private languageService;
+    private styleListService;
+    private styleService;
+    private config;
+    private messageService;
+    protected filesDropped: EventEmitter<File[]>;
+    protected filesInvalid: EventEmitter<File[]>;
+    private epsgCode$;
+    private epsgCode$$;
+    private filesDropped$$;
+    get map(): IgoMap;
+    constructor(component: MapBrowserComponent, importService: ImportService, languageService: LanguageService, styleListService: StyleListService, styleService: StyleService, config: ConfigService, messageService: MessageService);
+    ngOnInit(): void;
+    ngOnDestroy(): void;
+    onDragOver(evt: any): void;
+    onDragLeave(evt: any): void;
+    onDrop(evt: any): void;
+    private onFilesDropped;
+    private detectEPSG;
+    private onFileImportSuccess;
+    private onFileImportError;
+    static ɵfac: i0.ɵɵFactoryDeclaration<DropGeoFileDirective, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<DropGeoFileDirective, "[igoDropGeoFile]", never, {}, {}, never>;
+}

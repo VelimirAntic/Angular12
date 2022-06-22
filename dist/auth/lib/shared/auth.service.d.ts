@@ -1,0 +1,43 @@
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { ConfigService, LanguageService, MessageService } from '@igo2/core';
+import { User, IInfosUser } from './auth.interface';
+import { TokenService } from './token.service';
+import * as i0 from "@angular/core";
+export declare class AuthService {
+    private http;
+    private tokenService;
+    private config;
+    private languageService;
+    private messageService;
+    private router;
+    authenticate$: BehaviorSubject<boolean>;
+    logged$: BehaviorSubject<boolean>;
+    redirectUrl: string;
+    private anonymous;
+    get hasAuthService(): boolean;
+    constructor(http: HttpClient, tokenService: TokenService, config: ConfigService, languageService: LanguageService, messageService: MessageService, router: Router);
+    login(username: string, password: string): Observable<void>;
+    loginWithToken(token: string, type: string, infosUser?: IInfosUser): Observable<void>;
+    loginAnonymous(): Observable<boolean>;
+    refresh(): Observable<void>;
+    logout(): Observable<boolean>;
+    isAuthenticated(): boolean;
+    getToken(): string;
+    decodeToken(): any;
+    goToRedirectUrl(): void;
+    getUserInfo(): Observable<User>;
+    getProfils(): Observable<{
+        profils: string[];
+    }>;
+    updateUser(user: User): Observable<User>;
+    private encodePassword;
+    get logged(): boolean;
+    get isAnonymous(): boolean;
+    get authenticated(): boolean;
+    get isAdmin(): boolean;
+    private loginCall;
+    static ɵfac: i0.ɵɵFactoryDeclaration<AuthService, [null, null, null, null, null, { optional: true; }]>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<AuthService>;
+}

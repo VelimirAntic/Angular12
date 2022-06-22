@@ -1,0 +1,35 @@
+import { Title } from '@angular/platform-browser';
+import type { Media } from '@igo2/core';
+import { FlexibleState, Tool } from '@igo2/common';
+import { Feature } from '@igo2/geo';
+import type { IgoMap } from '@igo2/geo';
+import * as i0 from "@angular/core";
+export declare class SidenavComponent {
+    titleService: Title;
+    private format;
+    get map(): IgoMap;
+    set map(value: IgoMap);
+    private _map;
+    get opened(): boolean;
+    set opened(value: boolean);
+    private _opened;
+    get feature(): Feature;
+    set feature(value: Feature);
+    private _feature;
+    get tool(): Tool;
+    set tool(value: Tool);
+    private _tool;
+    get media(): Media;
+    set media(value: Media);
+    private _media;
+    get title(): string;
+    set title(value: string);
+    private _title;
+    topPanelState: FlexibleState;
+    get featureTitle(): string;
+    constructor(titleService: Title);
+    zoomToFeatureExtent(): void;
+    toggleTopPanel(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<SidenavComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<SidenavComponent, "igo-sidenav", never, { "map": "map"; "opened": "opened"; "feature": "feature"; "tool": "tool"; "media": "media"; "title": "title"; }, {}, never, never>;
+}

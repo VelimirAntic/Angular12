@@ -1,0 +1,26 @@
+/*
+ * Public API Surface of core
+ */
+export * from './lib/core.module';
+export * from './lib/activity/activity.module';
+export * from './lib/config/config.module';
+export * from './lib/gesture/gesture.module';
+export * from './lib/language/language.module';
+export * from './lib/message/message.module';
+export * from './lib/request/error.module';
+export * from './lib/request/logging.module';
+export * from './lib/config/config.provider';
+export * from './lib/gesture/gesture.provider';
+export * from './lib/language/shared/language.provider';
+export * from './lib/route/route.service';
+export * from './lib/route/route.interface';
+export * from './lib/activity';
+export * from './lib/analytics';
+export * from './lib/config';
+export * from './lib/language';
+export * from './lib/media';
+export * from './lib/message';
+export * from './lib/request';
+export * from './lib/storage';
+export * from './lib/network';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljX2FwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3BhY2thZ2VzL2NvcmUvc3JjL3B1YmxpY19hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0dBRUc7QUFFSCxjQUFjLG1CQUFtQixDQUFDO0FBQ2xDLGNBQWMsZ0NBQWdDLENBQUM7QUFDL0MsY0FBYyw0QkFBNEIsQ0FBQztBQUMzQyxjQUFjLDhCQUE4QixDQUFDO0FBQzdDLGNBQWMsZ0NBQWdDLENBQUM7QUFDL0MsY0FBYyw4QkFBOEIsQ0FBQztBQUM3QyxjQUFjLDRCQUE0QixDQUFDO0FBQzNDLGNBQWMsOEJBQThCLENBQUM7QUFFN0MsY0FBYyw4QkFBOEIsQ0FBQztBQUM3QyxjQUFjLGdDQUFnQyxDQUFDO0FBQy9DLGNBQWMseUNBQXlDLENBQUM7QUFDeEQsY0FBYywyQkFBMkIsQ0FBQztBQUMxQyxjQUFjLDZCQUE2QixDQUFDO0FBRTVDLGNBQWMsZ0JBQWdCLENBQUM7QUFDL0IsY0FBYyxpQkFBaUIsQ0FBQztBQUNoQyxjQUFjLGNBQWMsQ0FBQztBQUM3QixjQUFjLGdCQUFnQixDQUFDO0FBQy9CLGNBQWMsYUFBYSxDQUFDO0FBQzVCLGNBQWMsZUFBZSxDQUFDO0FBQzlCLGNBQWMsZUFBZSxDQUFDO0FBQzlCLGNBQWMsZUFBZSxDQUFDO0FBQzlCLGNBQWMsZUFBZSxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqIFB1YmxpYyBBUEkgU3VyZmFjZSBvZiBjb3JlXG4gKi9cblxuZXhwb3J0ICogZnJvbSAnLi9saWIvY29yZS5tb2R1bGUnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvYWN0aXZpdHkvYWN0aXZpdHkubW9kdWxlJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL2NvbmZpZy9jb25maWcubW9kdWxlJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL2dlc3R1cmUvZ2VzdHVyZS5tb2R1bGUnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvbGFuZ3VhZ2UvbGFuZ3VhZ2UubW9kdWxlJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL21lc3NhZ2UvbWVzc2FnZS5tb2R1bGUnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvcmVxdWVzdC9lcnJvci5tb2R1bGUnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvcmVxdWVzdC9sb2dnaW5nLm1vZHVsZSc7XG5cbmV4cG9ydCAqIGZyb20gJy4vbGliL2NvbmZpZy9jb25maWcucHJvdmlkZXInO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvZ2VzdHVyZS9nZXN0dXJlLnByb3ZpZGVyJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL2xhbmd1YWdlL3NoYXJlZC9sYW5ndWFnZS5wcm92aWRlcic7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9yb3V0ZS9yb3V0ZS5zZXJ2aWNlJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL3JvdXRlL3JvdXRlLmludGVyZmFjZSc7XG5cbmV4cG9ydCAqIGZyb20gJy4vbGliL2FjdGl2aXR5JztcbmV4cG9ydCAqIGZyb20gJy4vbGliL2FuYWx5dGljcyc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9jb25maWcnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvbGFuZ3VhZ2UnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvbWVkaWEnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvbWVzc2FnZSc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9yZXF1ZXN0JztcbmV4cG9ydCAqIGZyb20gJy4vbGliL3N0b3JhZ2UnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvbmV0d29yayc7XG4iXX0=

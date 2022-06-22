@@ -1,0 +1,65 @@
+import { OnInit, OnDestroy } from '@angular/core';
+import { LayerListControlsOptions, IgoMap, SearchSourceService, Layer } from '@igo2/geo';
+import { LayerListToolState } from '../layer-list-tool.state';
+import { MatTabChangeEvent } from '@angular/material/tabs';
+import { ToolState } from '../../tool/tool.state';
+import { MapState } from '../map.state';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { ImportExportState } from '../../import-export/import-export.state';
+import * as i0 from "@angular/core";
+/**
+ * Tool to browse a map's layers or to choose a different map
+ */
+export declare class MapToolsComponent implements OnInit, OnDestroy {
+    layerListToolState: LayerListToolState;
+    private toolState;
+    mapState: MapState;
+    private searchSourceService;
+    private importExportState;
+    layers$: BehaviorSubject<Layer[]>;
+    showAllLegendsValue$: BehaviorSubject<boolean>;
+    private resolution$$;
+    private visibleOrInRangeLayers$$;
+    delayedShowEmptyMapContent: boolean;
+    allowShowAllLegends: boolean;
+    showAllLegendsValue: boolean;
+    toggleLegendOnVisibilityChange: boolean;
+    expandLegendOfVisibleLayers: boolean;
+    updateLegendOnResolutionChange: boolean;
+    selectedTabAtOpening: string;
+    ogcButton: boolean;
+    timeButton: boolean;
+    layerAdditionAllowed: boolean;
+    get layerListControls(): LayerListControlsOptions;
+    set layerListControls(value: LayerListControlsOptions);
+    private _layerListControls;
+    get map(): IgoMap;
+    queryBadge: boolean;
+    get visibleOrInRangeLayers$(): Observable<Layer[]>;
+    get visibleLayers$(): Observable<Layer[]>;
+    get excludeBaseLayers(): boolean;
+    get layerFilterAndSortOptions(): LayerListControlsOptions;
+    tabGroup: any;
+    get searchToolInToolbar(): boolean;
+    get catalogToolInToolbar(): boolean;
+    get contextToolInToolbar(): boolean;
+    constructor(layerListToolState: LayerListToolState, toolState: ToolState, mapState: MapState, searchSourceService: SearchSourceService, importExportState: ImportExportState);
+    ngOnInit(): void;
+    ngOnDestroy(): void;
+    onShowAllLegends(event: any): void;
+    private selectedTab;
+    tabChanged(tab: MatTabChangeEvent): void;
+    onLayerListChange(appliedFilters: LayerListControlsOptions): void;
+    showAllLegend(): boolean;
+    activateExport(layer: Layer): void;
+    activateTimeFilter(): void;
+    activateOgcFilter(): void;
+    searchEmit(): void;
+    catalogEmit(): void;
+    contextEmit(): void;
+    isTimeFilterButton(layer: any): boolean;
+    isOGCFilterButton(layer: any): boolean;
+    isExportButton(layer: Layer): boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MapToolsComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MapToolsComponent, "igo-map-tools", never, { "allowShowAllLegends": "allowShowAllLegends"; "showAllLegendsValue": "showAllLegendsValue"; "toggleLegendOnVisibilityChange": "toggleLegendOnVisibilityChange"; "expandLegendOfVisibleLayers": "expandLegendOfVisibleLayers"; "updateLegendOnResolutionChange": "updateLegendOnResolutionChange"; "selectedTabAtOpening": "selectedTabAtOpening"; "ogcButton": "ogcButton"; "timeButton": "timeButton"; "layerAdditionAllowed": "layerAdditionAllowed"; "layerListControls": "layerListControls"; "queryBadge": "queryBadge"; }, {}, never, never>;
+}

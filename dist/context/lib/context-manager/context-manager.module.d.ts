@@ -1,0 +1,37 @@
+import { ModuleWithProviders } from '@angular/core';
+import * as i0 from "@angular/core";
+import * as i1 from "./context-list/context-list.component";
+import * as i2 from "./context-list/context-list-binding.directive";
+import * as i3 from "./context-item/context-item.component";
+import * as i4 from "./context-form/context-form.component";
+import * as i5 from "./context-edit/context-edit.component";
+import * as i6 from "./context-edit/context-edit-binding.directive";
+import * as i7 from "./context-permissions/context-permissions.component";
+import * as i8 from "./context-permissions/context-permissions-binding.directive";
+import * as i9 from "./shared/map-context.directive";
+import * as i10 from "./shared/layer-context.directive";
+import * as i11 from "@angular/common";
+import * as i12 from "@angular/forms";
+import * as i13 from "@angular/material/form-field";
+import * as i14 from "@angular/material/input";
+import * as i15 from "@angular/material/icon";
+import * as i16 from "@angular/material/button";
+import * as i17 from "@angular/material/tooltip";
+import * as i18 from "@angular/material/list";
+import * as i19 from "@angular/material/checkbox";
+import * as i20 from "@angular/material/radio";
+import * as i21 from "@angular/material/dialog";
+import * as i22 from "@angular/material/menu";
+import * as i23 from "@angular/material/core";
+import * as i24 from "@angular/material/autocomplete";
+import * as i25 from "@igo2/auth";
+import * as i26 from "@igo2/common";
+import * as i27 from "@igo2/core";
+import * as i28 from "../context-import-export/context-import-export.module";
+import * as i29 from "../context-map-button/context-map-button.module";
+export declare class IgoContextManagerModule {
+    static forRoot(): ModuleWithProviders<IgoContextManagerModule>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<IgoContextManagerModule, never>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<IgoContextManagerModule, [typeof i1.ContextListComponent, typeof i2.ContextListBindingDirective, typeof i3.ContextItemComponent, typeof i4.ContextFormComponent, typeof i5.ContextEditComponent, typeof i6.ContextEditBindingDirective, typeof i7.ContextPermissionsComponent, typeof i8.ContextPermissionsBindingDirective, typeof i9.MapContextDirective, typeof i10.LayerContextDirective], [typeof i11.CommonModule, typeof i12.FormsModule, typeof i12.ReactiveFormsModule, typeof i13.MatFormFieldModule, typeof i14.MatInputModule, typeof i15.MatIconModule, typeof i16.MatButtonModule, typeof i17.MatTooltipModule, typeof i18.MatListModule, typeof i19.MatCheckboxModule, typeof i20.MatRadioModule, typeof i21.MatDialogModule, typeof i22.MatMenuModule, typeof i23.MatOptionModule, typeof i24.MatAutocompleteModule, typeof i25.IgoAuthModule, typeof i26.IgoListModule, typeof i26.IgoKeyValueModule, typeof i26.IgoCollapsibleModule, typeof i26.IgoStopPropagationModule, typeof i27.IgoLanguageModule, typeof i28.IgoContextImportExportModule, typeof i29.IgoContextMapButtonModule, typeof i26.IgoActionbarModule], [typeof i1.ContextListComponent, typeof i2.ContextListBindingDirective, typeof i3.ContextItemComponent, typeof i4.ContextFormComponent, typeof i5.ContextEditComponent, typeof i6.ContextEditBindingDirective, typeof i7.ContextPermissionsComponent, typeof i8.ContextPermissionsBindingDirective, typeof i9.MapContextDirective, typeof i10.LayerContextDirective]>;
+    static ɵinj: i0.ɵɵInjectorDeclaration<IgoContextManagerModule>;
+}

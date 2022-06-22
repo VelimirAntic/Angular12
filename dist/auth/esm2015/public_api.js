@@ -1,0 +1,19 @@
+/*
+ * Public API Surface of auth
+ */
+export { AuthFormComponent } from './lib/auth-form';
+export * from './lib/shared/auth.service';
+export * from './lib/shared/logged.guard';
+export * from './lib/shared/auth.guard';
+export * from './lib/shared/admin.guard';
+export * from './lib/shared/profils.guard';
+export * from './lib/shared/auth.interceptor';
+export * from './lib/shared/auth.interface';
+export * from './lib/shared/auth-microsoft.provider';
+export * from './lib/shared/protected.directive';
+export * from './lib/shared/token.service';
+export * from './lib/shared/storage.interface';
+export * from './lib/shared/storage.service';
+export * from './lib/auth-routing.module';
+export * from './lib/auth.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljX2FwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3BhY2thZ2VzL2F1dGgvc3JjL3B1YmxpY19hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0dBRUc7QUFFSCxPQUFPLEVBQUUsaUJBQWlCLEVBQUUsTUFBTSxpQkFBaUIsQ0FBQztBQUNwRCxjQUFjLDJCQUEyQixDQUFDO0FBQzFDLGNBQWMsMkJBQTJCLENBQUM7QUFDMUMsY0FBYyx5QkFBeUIsQ0FBQztBQUN4QyxjQUFjLDBCQUEwQixDQUFDO0FBQ3pDLGNBQWMsNEJBQTRCLENBQUM7QUFDM0MsY0FBYywrQkFBK0IsQ0FBQztBQUM5QyxjQUFjLDZCQUE2QixDQUFDO0FBQzVDLGNBQWMsc0NBQXNDLENBQUM7QUFDckQsY0FBYyxrQ0FBa0MsQ0FBQztBQUNqRCxjQUFjLDRCQUE0QixDQUFDO0FBQzNDLGNBQWMsZ0NBQWdDLENBQUM7QUFDL0MsY0FBYyw4QkFBOEIsQ0FBQztBQUM3QyxjQUFjLDJCQUEyQixDQUFDO0FBQzFDLGNBQWMsbUJBQW1CLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuICogUHVibGljIEFQSSBTdXJmYWNlIG9mIGF1dGhcbiAqL1xuXG5leHBvcnQgeyBBdXRoRm9ybUNvbXBvbmVudCB9IGZyb20gJy4vbGliL2F1dGgtZm9ybSc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9zaGFyZWQvYXV0aC5zZXJ2aWNlJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL3NoYXJlZC9sb2dnZWQuZ3VhcmQnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvc2hhcmVkL2F1dGguZ3VhcmQnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvc2hhcmVkL2FkbWluLmd1YXJkJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL3NoYXJlZC9wcm9maWxzLmd1YXJkJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL3NoYXJlZC9hdXRoLmludGVyY2VwdG9yJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL3NoYXJlZC9hdXRoLmludGVyZmFjZSc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9zaGFyZWQvYXV0aC1taWNyb3NvZnQucHJvdmlkZXInO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvc2hhcmVkL3Byb3RlY3RlZC5kaXJlY3RpdmUnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvc2hhcmVkL3Rva2VuLnNlcnZpY2UnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvc2hhcmVkL3N0b3JhZ2UuaW50ZXJmYWNlJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL3NoYXJlZC9zdG9yYWdlLnNlcnZpY2UnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvYXV0aC1yb3V0aW5nLm1vZHVsZSc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9hdXRoLm1vZHVsZSc7XG4iXX0=

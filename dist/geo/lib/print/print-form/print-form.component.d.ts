@@ -1,0 +1,97 @@
+import { EventEmitter, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
+import { PrintOptions } from '../shared/print.interface';
+import { PrintOutputFormat, PrintPaperFormat, PrintOrientation, PrintResolution, PrintSaveImageFormat, PrintLegendPosition } from '../shared/print.type';
+import * as i0 from "@angular/core";
+export declare class PrintFormComponent implements OnInit {
+    private formBuilder;
+    form: FormGroup;
+    outputFormats: {
+        Pdf: "Pdf";
+        Image: "Image";
+    };
+    paperFormats: {
+        A0: "A0";
+        A1: "A1";
+        A2: "A2";
+        A3: "A3";
+        A4: "A4";
+        A5: "A5";
+        Letter: "Letter";
+        Legal: "Legal";
+    };
+    orientations: {
+        landscape: "landscape";
+        portrait: "portrait";
+    };
+    resolutions: {
+        72: "72";
+        96: "96";
+        150: "150";
+        300: "300";
+    };
+    imageFormats: {
+        Bmp: "Bmp";
+        Gif: "Gif";
+        Jpeg: "Jpeg";
+        Png: "Png";
+        Tiff: "Tiff";
+    };
+    legendPositions: {
+        none: "none";
+        topright: "topright";
+        topleft: "topleft";
+        bottomleft: "bottomleft";
+        bottomright: "bottomright";
+        newpage: "newpage";
+    };
+    isPrintService: boolean;
+    disabled$: BehaviorSubject<boolean>;
+    get imageFormat(): PrintSaveImageFormat;
+    set imageFormat(value: PrintSaveImageFormat);
+    get outputFormat(): PrintOutputFormat;
+    set outputFormat(value: PrintOutputFormat);
+    get paperFormat(): PrintPaperFormat;
+    set paperFormat(value: PrintPaperFormat);
+    get orientation(): PrintOrientation;
+    set orientation(value: PrintOrientation);
+    get resolution(): PrintResolution;
+    set resolution(value: PrintResolution);
+    get legendPosition(): PrintLegendPosition;
+    set legendPosition(value: PrintLegendPosition);
+    get title(): string;
+    set title(value: string);
+    get subtitle(): string;
+    set subtitle(value: string);
+    get comment(): string;
+    set comment(value: string);
+    get showProjection(): boolean;
+    set showProjection(value: boolean);
+    get showScale(): boolean;
+    set showScale(value: boolean);
+    get showLegend(): boolean;
+    set showLegend(value: boolean);
+    get doZipFile(): boolean;
+    set doZipFile(value: boolean);
+    get outputFormatField(): FormControl;
+    get paperFormatField(): FormControl;
+    get imageFormatField(): FormControl;
+    get orientationField(): FormControl;
+    get resolutionField(): FormControl;
+    get commentField(): FormControl;
+    get showProjectionField(): FormControl;
+    get showScaleField(): FormControl;
+    get showLegendField(): FormControl;
+    get doZipFileField(): FormControl;
+    get titleField(): FormControl;
+    get subtitleField(): FormControl;
+    get legendPositionField(): FormControl;
+    submit: EventEmitter<PrintOptions>;
+    constructor(formBuilder: FormBuilder);
+    ngOnInit(): void;
+    handleFormSubmit(data: PrintOptions, isValid: boolean): void;
+    toggleImageSaveProp(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<PrintFormComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<PrintFormComponent, "igo-print-form", never, { "disabled$": "disabled$"; "imageFormat": "imageFormat"; "outputFormat": "outputFormat"; "paperFormat": "paperFormat"; "orientation": "orientation"; "resolution": "resolution"; "legendPosition": "legendPosition"; "title": "title"; "subtitle": "subtitle"; "comment": "comment"; "showProjection": "showProjection"; "showScale": "showScale"; "showLegend": "showLegend"; "doZipFile": "doZipFile"; }, { "submit": "submit"; }, never, never>;
+}

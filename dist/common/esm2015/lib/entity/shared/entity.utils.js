@@ -1,0 +1,67 @@
+import t from 'typy';
+/**
+ * Get an entity's named property. Nested properties are supported
+ * with the dotted notation. (i.e 'author.name')
+ *
+ * Note: this method is a 'best attempt' at getting an entity's property.
+ * It fits the most common cases but you might need to explicitely define
+ * a property getter when using an EntityStore, for example.
+ * @param entity Entity
+ * @param property Property name
+ * @returns Property value
+ */
+export function getEntityProperty(entity, property) {
+    return t(entity, property).safeObject;
+}
+/**
+ * Get an entity's id. An entity's id can be one of:
+ * 'entity.meta.id', 'entity.meta.idProperty' or 'entity.id'.
+ *
+ * Note: See the note in the 'getEntityProperty' documentation.
+ * @param entity Entity
+ * @returns Entity id
+ */
+export function getEntityId(entity) {
+    const meta = entity.meta || {};
+    return meta.id ? meta.id : getEntityProperty(entity, meta.idProperty || 'id');
+}
+/**
+ * Get an entity's title. An entity's title can be one of:
+ * 'entity.meta.title', 'entity.meta.titleProperty' or 'entity.title'.
+ * @param entity Entity
+ * @returns Entity title
+ */
+export function getEntityTitle(entity) {
+    const meta = entity.meta || {};
+    return meta.title ? meta.title : getEntityProperty(entity, meta.titleProperty || 'title');
+}
+/**
+ * Get an entity's HTML title. An entity's HTML title can be one of:
+ * 'entity.meta.titleHtml', 'entity.meta.titleHtmlProperty' or 'entity.titleHtml'.
+ * @param entity Entity
+ * @returns Entity HTML title
+ */
+export function getEntityTitleHtml(entity) {
+    const meta = entity.meta || {};
+    return meta.titleHtml ? meta.titleHtml : getEntityProperty(entity, meta.titleHtmlProperty || 'titleHtml');
+}
+/**
+ * Get an entity's icon. An entity's icon can be one of:
+ * 'entity.meta.icon', 'entity.meta.iconProperty' or 'entity.icon'.
+ * @param entity Entity
+ * @returns Entity icon
+ */
+export function getEntityIcon(entity) {
+    const meta = entity.meta || {};
+    return meta.icon ? meta.icon : getEntityProperty(entity, meta.iconProperty || 'icon');
+}
+/**
+ * Get an entity's revision.
+ * @param entity Entity
+ * @returns Entity revision
+ */
+export function getEntityRevision(entity) {
+    const meta = entity.meta || {};
+    return meta.revision || 0;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZW50aXR5LnV0aWxzLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vcGFja2FnZXMvY29tbW9uL3NyYy9saWIvZW50aXR5L3NoYXJlZC9lbnRpdHkudXRpbHMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxDQUFDLE1BQU0sTUFBTSxDQUFDO0FBSXJCOzs7Ozs7Ozs7O0dBVUc7QUFDSCxNQUFNLFVBQVUsaUJBQWlCLENBQUMsTUFBYyxFQUFFLFFBQWdCO0lBQ2hFLE9BQU8sQ0FBQyxDQUFDLE1BQU0sRUFBRSxRQUFRLENBQUMsQ0FBQyxVQUFVLENBQUM7QUFDeEMsQ0FBQztBQUVEOzs7Ozs7O0dBT0c7QUFDSCxNQUFNLFVBQVUsV0FBVyxDQUFDLE1BQWM7SUFDeEMsTUFBTSxJQUFJLEdBQUksTUFBYyxDQUFDLElBQUksSUFBSSxFQUFFLENBQUM7SUFDeEMsT0FBTyxJQUFJLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQyxpQkFBaUIsQ0FBQyxNQUFNLEVBQUUsSUFBSSxDQUFDLFVBQVUsSUFBSSxJQUFJLENBQUMsQ0FBQztBQUNoRixDQUFDO0FBRUQ7Ozs7O0dBS0c7QUFDSCxNQUFNLFVBQVUsY0FBYyxDQUFDLE1BQWM7SUFDM0MsTUFBTSxJQUFJLEdBQUksTUFBYyxDQUFDLElBQUksSUFBSSxFQUFFLENBQUM7SUFDeEMsT0FBTyxJQUFJLENBQUMsS0FBSyxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDLENBQUMsQ0FBQyxpQkFBaUIsQ0FBQyxNQUFNLEVBQUUsSUFBSSxDQUFDLGFBQWEsSUFBSSxPQUFPLENBQUMsQ0FBQztBQUM1RixDQUFDO0FBRUQ7Ozs7O0dBS0c7QUFDSCxNQUFNLFVBQVUsa0JBQWtCLENBQUMsTUFBYztJQUMvQyxNQUFNLElBQUksR0FBSSxNQUFjLENBQUMsSUFBSSxJQUFJLEVBQUUsQ0FBQztJQUN4QyxPQUFPLElBQUksQ0FBQyxTQUFTLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsQ0FBQyxDQUFDLGlCQUFpQixDQUFDLE1BQU0sRUFBRSxJQUFJLENBQUMsaUJBQWlCLElBQUksV0FBVyxDQUFDLENBQUM7QUFDNUcsQ0FBQztBQUVEOzs7OztHQUtHO0FBQ0gsTUFBTSxVQUFVLGFBQWEsQ0FBQyxNQUFjO0lBQzFDLE1BQU0sSUFBSSxHQUFJLE1BQWMsQ0FBQyxJQUFJLElBQUksRUFBRSxDQUFDO0lBQ3hDLE9BQU8sSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUMsaUJBQWlCLENBQUMsTUFBTSxFQUFFLElBQUksQ0FBQyxZQUFZLElBQUksTUFBTSxDQUFDLENBQUM7QUFDeEYsQ0FBQztBQUVEOzs7O0dBSUc7QUFDSCxNQUFNLFVBQVUsaUJBQWlCLENBQUMsTUFBYztJQUM5QyxNQUFNLElBQUksR0FBSSxNQUFjLENBQUMsSUFBSSxJQUFJLEVBQUUsQ0FBQztJQUN4QyxPQUFPLElBQUksQ0FBQyxRQUFRLElBQUksQ0FBQyxDQUFDO0FBQzVCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgdCBmcm9tICd0eXB5JztcblxuaW1wb3J0IHsgRW50aXR5S2V5IH0gZnJvbSAnLi9lbnRpdHkuaW50ZXJmYWNlcyc7XG5cbi8qKlxuICogR2V0IGFuIGVudGl0eSdzIG5hbWVkIHByb3BlcnR5LiBOZXN0ZWQgcHJvcGVydGllcyBhcmUgc3VwcG9ydGVkXG4gKiB3aXRoIHRoZSBkb3R0ZWQgbm90YXRpb24uIChpLmUgJ2F1dGhvci5uYW1lJylcbiAqXG4gKiBOb3RlOiB0aGlzIG1ldGhvZCBpcyBhICdiZXN0IGF0dGVtcHQnIGF0IGdldHRpbmcgYW4gZW50aXR5J3MgcHJvcGVydHkuXG4gKiBJdCBmaXRzIHRoZSBtb3N0IGNvbW1vbiBjYXNlcyBidXQgeW91IG1pZ2h0IG5lZWQgdG8gZXhwbGljaXRlbHkgZGVmaW5lXG4gKiBhIHByb3BlcnR5IGdldHRlciB3aGVuIHVzaW5nIGFuIEVudGl0eVN0b3JlLCBmb3IgZXhhbXBsZS5cbiAqIEBwYXJhbSBlbnRpdHkgRW50aXR5XG4gKiBAcGFyYW0gcHJvcGVydHkgUHJvcGVydHkgbmFtZVxuICogQHJldHVybnMgUHJvcGVydHkgdmFsdWVcbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGdldEVudGl0eVByb3BlcnR5KGVudGl0eTogb2JqZWN0LCBwcm9wZXJ0eTogc3RyaW5nKTogYW55IHtcbiAgcmV0dXJuIHQoZW50aXR5LCBwcm9wZXJ0eSkuc2FmZU9iamVjdDtcbn1cblxuLyoqXG4gKiBHZXQgYW4gZW50aXR5J3MgaWQuIEFuIGVudGl0eSdzIGlkIGNhbiBiZSBvbmUgb2Y6XG4gKiAnZW50aXR5Lm1ldGEuaWQnLCAnZW50aXR5Lm1ldGEuaWRQcm9wZXJ0eScgb3IgJ2VudGl0eS5pZCcuXG4gKlxuICogTm90ZTogU2VlIHRoZSBub3RlIGluIHRoZSAnZ2V0RW50aXR5UHJvcGVydHknIGRvY3VtZW50YXRpb24uXG4gKiBAcGFyYW0gZW50aXR5IEVudGl0eVxuICogQHJldHVybnMgRW50aXR5IGlkXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBnZXRFbnRpdHlJZChlbnRpdHk6IG9iamVjdCk6IEVudGl0eUtleSB7XG4gIGNvbnN0IG1ldGEgPSAoZW50aXR5IGFzIGFueSkubWV0YSB8fCB7fTtcbiAgcmV0dXJuIG1ldGEuaWQgPyBtZXRhLmlkIDogZ2V0RW50aXR5UHJvcGVydHkoZW50aXR5LCBtZXRhLmlkUHJvcGVydHkgfHwgJ2lkJyk7XG59XG5cbi8qKlxuICogR2V0IGFuIGVudGl0eSdzIHRpdGxlLiBBbiBlbnRpdHkncyB0aXRsZSBjYW4gYmUgb25lIG9mOlxuICogJ2VudGl0eS5tZXRhLnRpdGxlJywgJ2VudGl0eS5tZXRhLnRpdGxlUHJvcGVydHknIG9yICdlbnRpdHkudGl0bGUnLlxuICogQHBhcmFtIGVudGl0eSBFbnRpdHlcbiAqIEByZXR1cm5zIEVudGl0eSB0aXRsZVxuICovXG5leHBvcnQgZnVuY3Rpb24gZ2V0RW50aXR5VGl0bGUoZW50aXR5OiBvYmplY3QpOiBzdHJpbmcge1xuICBjb25zdCBtZXRhID0gKGVudGl0eSBhcyBhbnkpLm1ldGEgfHwge307XG4gIHJldHVybiBtZXRhLnRpdGxlID8gbWV0YS50aXRsZSA6IGdldEVudGl0eVByb3BlcnR5KGVudGl0eSwgbWV0YS50aXRsZVByb3BlcnR5IHx8ICd0aXRsZScpO1xufVxuXG4vKipcbiAqIEdldCBhbiBlbnRpdHkncyBIVE1MIHRpdGxlLiBBbiBlbnRpdHkncyBIVE1MIHRpdGxlIGNhbiBiZSBvbmUgb2Y6XG4gKiAnZW50aXR5Lm1ldGEudGl0bGVIdG1sJywgJ2VudGl0eS5tZXRhLnRpdGxlSHRtbFByb3BlcnR5JyBvciAnZW50aXR5LnRpdGxlSHRtbCcuXG4gKiBAcGFyYW0gZW50aXR5IEVudGl0eVxuICogQHJldHVybnMgRW50aXR5IEhUTUwgdGl0bGVcbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGdldEVudGl0eVRpdGxlSHRtbChlbnRpdHk6IG9iamVjdCk6IHN0cmluZyB7XG4gIGNvbnN0IG1ldGEgPSAoZW50aXR5IGFzIGFueSkubWV0YSB8fCB7fTtcbiAgcmV0dXJuIG1ldGEudGl0bGVIdG1sID8gbWV0YS50aXRsZUh0bWwgOiBnZXRFbnRpdHlQcm9wZXJ0eShlbnRpdHksIG1ldGEudGl0bGVIdG1sUHJvcGVydHkgfHwgJ3RpdGxlSHRtbCcpO1xufVxuXG4vKipcbiAqIEdldCBhbiBlbnRpdHkncyBpY29uLiBBbiBlbnRpdHkncyBpY29uIGNhbiBiZSBvbmUgb2Y6XG4gKiAnZW50aXR5Lm1ldGEuaWNvbicsICdlbnRpdHkubWV0YS5pY29uUHJvcGVydHknIG9yICdlbnRpdHkuaWNvbicuXG4gKiBAcGFyYW0gZW50aXR5IEVudGl0eVxuICogQHJldHVybnMgRW50aXR5IGljb25cbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGdldEVudGl0eUljb24oZW50aXR5OiBvYmplY3QpOiBzdHJpbmcge1xuICBjb25zdCBtZXRhID0gKGVudGl0eSBhcyBhbnkpLm1ldGEgfHwge307XG4gIHJldHVybiBtZXRhLmljb24gPyBtZXRhLmljb24gOiBnZXRFbnRpdHlQcm9wZXJ0eShlbnRpdHksIG1ldGEuaWNvblByb3BlcnR5IHx8ICdpY29uJyk7XG59XG5cbi8qKlxuICogR2V0IGFuIGVudGl0eSdzIHJldmlzaW9uLlxuICogQHBhcmFtIGVudGl0eSBFbnRpdHlcbiAqIEByZXR1cm5zIEVudGl0eSByZXZpc2lvblxuICovXG5leHBvcnQgZnVuY3Rpb24gZ2V0RW50aXR5UmV2aXNpb24oZW50aXR5OiBvYmplY3QpOiBudW1iZXIge1xuICBjb25zdCBtZXRhID0gKGVudGl0eSBhcyBhbnkpLm1ldGEgfHwge307XG4gIHJldHVybiBtZXRhLnJldmlzaW9uIHx8IDA7XG59XG4iXX0=

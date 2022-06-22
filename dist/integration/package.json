@@ -1,0 +1,38 @@
+{
+  "name": "@igo2/integration",
+  "version": "1.11.1",
+  "description": "IGO Library",
+  "author": "MSP",
+  "keywords": [
+    "igo"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/infra-geo-ouverte/igo2-lib#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infra-geo-ouverte/igo2-lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/infra-geo-ouverte/igo2-lib/issues"
+  },
+  "peerDependencies": {
+    "@angular/common": "^12.2.9",
+    "@angular/core": "^12.2.9",
+    "@igo2/geo": "1.11.1",
+    "@igo2/context": "1.11.1",
+    "rxjs": "^6.6.7"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "main": "bundles/igo2-integration.umd.js",
+  "module": "fesm2015/igo2-integration.js",
+  "es2015": "fesm2015/igo2-integration.js",
+  "esm2015": "esm2015/igo2-integration.js",
+  "fesm2015": "fesm2015/igo2-integration.js",
+  "typings": "igo2-integration.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by Ivy in full compilation mode. This is not allowed.\\nPlease delete and rebuild the package with Ivy partial compilation mode, before attempting to publish.\\n')\" && exit 1"
+  }
+}

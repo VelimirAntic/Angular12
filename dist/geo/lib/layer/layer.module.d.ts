@@ -1,0 +1,34 @@
+import { ModuleWithProviders } from '@angular/core';
+import * as i0 from "@angular/core";
+import * as i1 from "./layer-item/layer-item.component";
+import * as i2 from "./layer-legend-item/layer-legend-item.component";
+import * as i3 from "./layer-legend/layer-legend.component";
+import * as i4 from "./layer-list/layer-list.component";
+import * as i5 from "./layer-list-tool/layer-list-tool.component";
+import * as i6 from "./layer-legend-list/layer-legend-list.component";
+import * as i7 from "./layer-list/layer-list-binding.directive";
+import * as i8 from "./layer-legend-list/layer-legend-list-binding.directive";
+import * as i9 from "./track-feature-button/track-feature-button.component";
+import * as i10 from "@angular/material/input";
+import * as i11 from "@angular/material/form-field";
+import * as i12 from "@angular/common";
+import * as i13 from "@angular/forms";
+import * as i14 from "@angular/material/divider";
+import * as i15 from "@angular/material/menu";
+import * as i16 from "@angular/material/icon";
+import * as i17 from "@angular/material/button";
+import * as i18 from "@angular/material/slide-toggle";
+import * as i19 from "@angular/material/select";
+import * as i20 from "@angular/material/tooltip";
+import * as i21 from "@angular/material/list";
+import * as i22 from "@angular/material/slider";
+import * as i23 from "@angular/material/badge";
+import * as i24 from "@angular/material/checkbox";
+import * as i25 from "@igo2/core";
+import * as i26 from "@igo2/common";
+export declare class IgoLayerModule {
+    static forRoot(): ModuleWithProviders<IgoLayerModule>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<IgoLayerModule, never>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<IgoLayerModule, [typeof i1.LayerItemComponent, typeof i2.LayerLegendItemComponent, typeof i3.LayerLegendComponent, typeof i4.LayerListComponent, typeof i5.LayerListToolComponent, typeof i6.LayerLegendListComponent, typeof i7.LayerListBindingDirective, typeof i8.LayerLegendListBindingDirective, typeof i9.TrackFeatureButtonComponent], [typeof i10.MatInputModule, typeof i11.MatFormFieldModule, typeof i12.CommonModule, typeof i13.FormsModule, typeof i14.MatDividerModule, typeof i15.MatMenuModule, typeof i16.MatIconModule, typeof i17.MatButtonModule, typeof i18.MatSlideToggleModule, typeof i19.MatSelectModule, typeof i20.MatTooltipModule, typeof i21.MatListModule, typeof i22.MatSliderModule, typeof i23.MatBadgeModule, typeof i24.MatCheckboxModule, typeof i25.IgoLanguageModule, typeof i26.IgoListModule, typeof i26.IgoCollapsibleModule, typeof i26.IgoImageModule, typeof i26.IgoPanelModule, typeof i26.IgoMatBadgeIconModule, typeof i26.IgoCustomHtmlModule], [typeof i1.LayerItemComponent, typeof i2.LayerLegendItemComponent, typeof i3.LayerLegendComponent, typeof i4.LayerListComponent, typeof i5.LayerListToolComponent, typeof i6.LayerLegendListComponent, typeof i7.LayerListBindingDirective, typeof i8.LayerLegendListBindingDirective, typeof i9.TrackFeatureButtonComponent]>;
+    static ɵinj: i0.ɵɵInjectorDeclaration<IgoLayerModule>;
+}

@@ -1,0 +1,29 @@
+{
+  "igo": {
+    "core": {
+      "message": {
+        "success": "Success",
+        "error": "Error",
+        "info": "Info",
+        "alert": "Alert"
+      },
+      "errors": {
+        "uncaught": {
+          "message":
+            "Sorry, service is currently not available. Please try again later",
+          "title": "Error server"
+        }
+      },
+      "network": {
+        "online": {
+          "message": "Online",
+          "title": "Status:"
+        },
+        "offline": {
+          "message": "Offline",
+          "title": "Status:"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+import { WfsWorkspace } from './wfs-workspace';
+import { FeatureWorkspace } from './feature-workspace';
+import { EditionWorkspace } from './edition-workspace';
+import { Observable } from 'rxjs';
+export declare function getRowsInMapExtent(layerId: any, storageService: any): boolean;
+export declare function setRowsInMapExtent(value: any, layerId: any, storageService: any): void;
+export declare function getSelectedOnly(layerId: any, storageService: any): boolean;
+export declare function setSelectedOnly(value: any, layerId: any, storageService: any): void;
+export declare function mapExtentStrategyActiveToolTip(ws: WfsWorkspace | FeatureWorkspace | EditionWorkspace): Observable<string>;
+export declare function noElementSelected(ws: WfsWorkspace | FeatureWorkspace | EditionWorkspace): Observable<boolean>;

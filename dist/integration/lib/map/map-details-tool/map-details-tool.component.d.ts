@@ -1,0 +1,38 @@
+import { OnInit, ChangeDetectorRef } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Layer, IgoMap, LayerListControlsOptions, SearchSourceService } from '@igo2/geo';
+import { ToolState } from './../../tool/tool.state';
+import { MapState } from './../map.state';
+import { ImportExportState } from '../../import-export/import-export.state';
+import * as i0 from "@angular/core";
+export declare class MapDetailsToolComponent implements OnInit {
+    private mapState;
+    private toolState;
+    private searchSourceService;
+    private cdRef;
+    private importExportState;
+    delayedShowEmptyMapContent: boolean;
+    toggleLegendOnVisibilityChange: boolean;
+    expandLegendOfVisibleLayers: boolean;
+    updateLegendOnResolutionChange: boolean;
+    ogcButton: boolean;
+    timeButton: boolean;
+    layerListControls: LayerListControlsOptions;
+    queryBadge: boolean;
+    layerAdditionAllowed: boolean;
+    get map(): IgoMap;
+    get layers$(): Observable<Layer[]>;
+    get excludeBaseLayers(): boolean;
+    get layerFilterAndSortOptions(): any;
+    get searchToolInToolbar(): boolean;
+    get catalogToolInToolbar(): boolean;
+    get contextToolInToolbar(): boolean;
+    constructor(mapState: MapState, toolState: ToolState, searchSourceService: SearchSourceService, cdRef: ChangeDetectorRef, importExportState: ImportExportState);
+    ngOnInit(): void;
+    searchEmit(): void;
+    catalogEmit(): void;
+    contextEmit(): void;
+    activateExport(layer: Layer): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MapDetailsToolComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MapDetailsToolComponent, "igo-map-details-tool", never, { "toggleLegendOnVisibilityChange": "toggleLegendOnVisibilityChange"; "expandLegendOfVisibleLayers": "expandLegendOfVisibleLayers"; "updateLegendOnResolutionChange": "updateLegendOnResolutionChange"; "ogcButton": "ogcButton"; "timeButton": "timeButton"; "layerListControls": "layerListControls"; "queryBadge": "queryBadge"; "layerAdditionAllowed": "layerAdditionAllowed"; }, {}, never, never>;
+}

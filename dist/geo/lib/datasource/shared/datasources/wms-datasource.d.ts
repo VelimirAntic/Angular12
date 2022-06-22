@@ -1,0 +1,32 @@
+import olSourceImageWMS from 'ol/source/ImageWMS';
+import { DataSource } from './datasource';
+import { Legend } from './datasource.interface';
+import { WMSDataSourceOptions } from './wms-datasource.interface';
+import { WFSService } from './wfs.service';
+import { OgcFiltersOptions } from '../../../filter/shared/ogc-filter.interface';
+import { LegendMapViewOptions } from '../../../layer/shared/layers/layer.interface';
+import { BehaviorSubject } from 'rxjs';
+import { TimeFilterOptions } from '../../../filter/shared/time-filter.interface';
+export declare class WMSDataSource extends DataSource {
+    options: WMSDataSourceOptions;
+    protected wfsService: WFSService;
+    ol: olSourceImageWMS;
+    get params(): any;
+    get queryTitle(): string;
+    get mapLabel(): string;
+    get queryHtmlTarget(): string;
+    set ogcFilters(value: OgcFiltersOptions);
+    get ogcFilters(): OgcFiltersOptions;
+    readonly ogcFilters$: BehaviorSubject<OgcFiltersOptions>;
+    set timeFilter(value: TimeFilterOptions);
+    get timeFilter(): TimeFilterOptions;
+    readonly timeFilter$: BehaviorSubject<TimeFilterOptions>;
+    constructor(options: WMSDataSourceOptions, wfsService: WFSService);
+    refresh(): void;
+    private buildDynamicDownloadUrlFromParamsWFS;
+    protected createOlSource(): olSourceImageWMS;
+    setOgcFilters(ogcFilters: OgcFiltersOptions, triggerEvent?: boolean): void;
+    setTimeFilter(timeFilter: TimeFilterOptions, triggerEvent?: boolean): void;
+    getLegend(style?: string, view?: LegendMapViewOptions): Legend[];
+    onUnwatch(): void;
+}

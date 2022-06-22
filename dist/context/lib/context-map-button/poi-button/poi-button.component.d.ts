@@ -1,0 +1,34 @@
+import { OnInit, OnDestroy } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MessageService, LanguageService } from '@igo2/core';
+import { ConfirmDialogService } from '@igo2/common';
+import { AuthService } from '@igo2/auth';
+import type { IgoMap } from '@igo2/geo';
+import { PoiService } from './shared/poi.service';
+import { Poi } from './shared/poi.interface';
+import * as i0 from "@angular/core";
+export declare class PoiButtonComponent implements OnInit, OnDestroy {
+    private dialog;
+    private authService;
+    private poiService;
+    private messageService;
+    private languageService;
+    private confirmDialogService;
+    get map(): IgoMap;
+    set map(value: IgoMap);
+    private _map;
+    get color(): string;
+    set color(value: string);
+    private _color;
+    pois: Poi[];
+    private authenticate$$;
+    constructor(dialog: MatDialog, authService: AuthService, poiService: PoiService, messageService: MessageService, languageService: LanguageService, confirmDialogService: ConfirmDialogService);
+    ngOnInit(): void;
+    ngOnDestroy(): void;
+    deletePoi(poi: Poi): void;
+    private getPois;
+    createPoi(): void;
+    zoomOnPoi(id: any): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<PoiButtonComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<PoiButtonComponent, "igo-poi-button", never, { "map": "map"; "color": "color"; }, {}, never, never>;
+}

@@ -1,0 +1,35 @@
+import { EventEmitter } from '@angular/core';
+import { StorageService } from '@igo2/core';
+import { AuthService } from '@igo2/auth';
+import { TypePermission } from '../shared/context.enum';
+import { DetailedContext } from '../shared/context.interface';
+import * as i0 from "@angular/core";
+export declare class ContextItemComponent {
+    auth: AuthService;
+    private storageService;
+    typePermission: typeof TypePermission;
+    color: string;
+    collapsed: boolean;
+    get context(): DetailedContext;
+    set context(value: DetailedContext);
+    private _context;
+    get default(): boolean;
+    set default(value: boolean);
+    private _default;
+    selected: boolean;
+    edit: EventEmitter<DetailedContext>;
+    delete: EventEmitter<DetailedContext>;
+    save: EventEmitter<DetailedContext>;
+    clone: EventEmitter<DetailedContext>;
+    hide: EventEmitter<DetailedContext>;
+    show: EventEmitter<DetailedContext>;
+    favorite: EventEmitter<DetailedContext>;
+    managePermissions: EventEmitter<DetailedContext>;
+    manageTools: EventEmitter<DetailedContext>;
+    get hidden(): boolean;
+    get canShare(): boolean;
+    constructor(auth: AuthService, storageService: StorageService);
+    favoriteClick(context: any): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<ContextItemComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<ContextItemComponent, "igo-context-item", never, { "context": "context"; "default": "default"; "selected": "selected"; }, { "edit": "edit"; "delete": "delete"; "save": "save"; "clone": "clone"; "hide": "hide"; "show": "show"; "favorite": "favorite"; "managePermissions": "managePermissions"; "manageTools": "manageTools"; }, never, never>;
+}

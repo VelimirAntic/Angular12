@@ -1,0 +1,36 @@
+import { ModuleWithProviders } from '@angular/core';
+import * as i0 from "@angular/core";
+import * as i1 from "./advanced-map-tool/advanced-map-tool.component";
+import * as i2 from "./map-tool/map-tool.component";
+import * as i3 from "./map-tools/map-tools.component";
+import * as i4 from "./map-details-tool/map-details-tool.component";
+import * as i5 from "./map-legend/map-legend-tool.component";
+import * as i6 from "./advanced-map-tool/advanced-swipe/advanced-swipe.component";
+import * as i7 from "./advanced-map-tool/advanced-coordinates/advanced-coordinates.component";
+import * as i8 from "@angular/forms";
+import * as i9 from "@angular/material/button-toggle";
+import * as i10 from "@angular/material/divider";
+import * as i11 from "@angular/material/select";
+import * as i12 from "@angular/material/core";
+import * as i13 from "@angular/material/form-field";
+import * as i14 from "@angular/material/input";
+import * as i15 from "@angular/material/checkbox";
+import * as i16 from "@igo2/common";
+import * as i17 from "@angular/common";
+import * as i18 from "@angular/material/tabs";
+import * as i19 from "@angular/material/list";
+import * as i20 from "@angular/material/icon";
+import * as i21 from "@igo2/core";
+import * as i22 from "@igo2/geo";
+import * as i23 from "@igo2/context";
+import * as i24 from "../workspace/workspace.module";
+import * as i25 from "@angular/material/slide-toggle";
+import * as i26 from "@angular/material/menu";
+import * as i27 from "@angular/material/button";
+import * as i28 from "@angular/material/tooltip";
+export declare class IgoAppMapModule {
+    static forRoot(): ModuleWithProviders<IgoAppMapModule>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<IgoAppMapModule, never>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<IgoAppMapModule, [typeof i1.AdvancedMapToolComponent, typeof i2.MapToolComponent, typeof i3.MapToolsComponent, typeof i4.MapDetailsToolComponent, typeof i5.MapLegendToolComponent, typeof i6.AdvancedSwipeComponent, typeof i7.AdvancedCoordinatesComponent], [typeof i8.FormsModule, typeof i8.ReactiveFormsModule, typeof i9.MatButtonToggleModule, typeof i10.MatDividerModule, typeof i11.MatSelectModule, typeof i12.MatOptionModule, typeof i13.MatFormFieldModule, typeof i14.MatInputModule, typeof i15.MatCheckboxModule, typeof i16.IgoSpinnerModule, typeof i17.CommonModule, typeof i18.MatTabsModule, typeof i19.MatListModule, typeof i20.MatIconModule, typeof i21.IgoLanguageModule, typeof i22.IgoLayerModule, typeof i22.IgoMetadataModule, typeof i22.IgoDownloadModule, typeof i22.IgoImportExportModule, typeof i22.IgoFilterModule, typeof i23.IgoContextModule, typeof i24.IgoAppWorkspaceModule, typeof i25.MatSlideToggleModule, typeof i26.MatMenuModule, typeof i27.MatButtonModule, typeof i28.MatTooltipModule], [typeof i1.AdvancedMapToolComponent, typeof i2.MapToolComponent, typeof i3.MapToolsComponent, typeof i4.MapDetailsToolComponent, typeof i5.MapLegendToolComponent]>;
+    static ɵinj: i0.ɵɵInjectorDeclaration<IgoAppMapModule>;
+}

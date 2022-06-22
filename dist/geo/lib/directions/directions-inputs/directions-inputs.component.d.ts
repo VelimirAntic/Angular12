@@ -1,0 +1,45 @@
+import { EventEmitter, OnDestroy } from '@angular/core';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { Stop } from '../shared/directions.interface';
+import { MatAutocomplete } from '@angular/material/autocomplete';
+import { MatOption } from '@angular/material/core';
+import { StopsFeatureStore, StopsStore } from '../shared/store';
+import { LanguageService } from '@igo2/core';
+import * as i0 from "@angular/core";
+export declare class DirectionsInputsComponent implements OnDestroy {
+    private languageService;
+    private readonly invalidKeys;
+    private onMapClickEventKeys;
+    stopWithHover: Stop;
+    stopIsDragged: boolean;
+    stopsStore: StopsStore;
+    stopsFeatureStore: StopsFeatureStore;
+    projection: string;
+    coordRoundedDecimals: number;
+    debounce: number;
+    length: number;
+    stopInputHasFocus: EventEmitter<boolean>;
+    constructor(languageService: LanguageService);
+    ngOnDestroy(): void;
+    onStopEnter(stop: Stop): void;
+    onStopLeave(): void;
+    getOptionText(option: any): any;
+    chooseProposal(event: {
+        source: MatAutocomplete;
+        option: MatOption;
+    }, stop: Stop): void;
+    setStopText(event: KeyboardEvent, stop: Stop): void;
+    validateTerm(term: string): boolean;
+    private keyIsValid;
+    getNgClass(stop: Stop): string;
+    getPlaceholder(stop: Stop): string;
+    removeStop(stop: Stop): void;
+    clearStop(stop: Stop): void;
+    drop(event: CdkDragDrop<string[]>): void;
+    private moveStops;
+    onInputFocus(stop: Stop): void;
+    private listenMapSingleClick;
+    private unlistenMapSingleClick;
+    static ɵfac: i0.ɵɵFactoryDeclaration<DirectionsInputsComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<DirectionsInputsComponent, "igo-directions-inputs", never, { "stopsStore": "stopsStore"; "stopsFeatureStore": "stopsFeatureStore"; "projection": "projection"; "coordRoundedDecimals": "coordRoundedDecimals"; "debounce": "debounce"; "length": "length"; }, { "stopInputHasFocus": "stopInputHasFocus"; }, never, never>;
+}

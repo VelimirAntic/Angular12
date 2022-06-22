@@ -1,0 +1,1242 @@
+@use '~@angular/material/_index.scss' as mat;
+@mixin igo-all-theming($theme, $typography: $igo-typography) {
+  @include igo-theming($theme, $typography);
+  @include igo-common-theming($theme, $typography);
+  @include igo-geo-theming($theme, $typography);
+}
+
+$igo-typography: mat.define-typography-config(
+  $display-4:     mat.define-typography-level(110px, 110px, 300),
+  $display-3:     mat.define-typography-level(54px, 54px, 400),
+  $display-2:     mat.define-typography-level(43px, 46px, 400),
+  $display-1:     mat.define-typography-level(32px, 38px, 400),
+  $headline:      mat.define-typography-level(22px, 30px, 400),
+  $title:         mat.define-typography-level(18px, 30px, 500),
+  $subheading-2:  mat.define-typography-level(14px, 26px, 400),
+  $subheading-1:  mat.define-typography-level(13px, 22px, 400),
+  $body-2:        mat.define-typography-level(12px, 22px, 500),
+  $body-1:        mat.define-typography-level(12px, 18px, 400),
+  $caption:       mat.define-typography-level(12px, 18px, 400),
+  $button:        mat.define-typography-level(13px, 13px, 500),
+  $input:         mat.define-typography-level(14px, 1.25, 400)
+);
+
+@function theme-foreground($palette) {
+    $color: mat.get-color-from-palette($palette, 500);
+    @return (
+        base:              $color,
+        divider:           rgba($color, 0.12),
+        dividers:          rgba($color, 0.12),
+        disabled:          rgba($color, 0.38),
+        disabled-button:   rgba($color, 0.26),
+        disabled-text:     rgba($color, 0.38),
+        elevation:         $color,
+        hint-text:         rgba($color, 0.38),
+        secondary-text:    rgba($color, 0.54),
+        icon:              rgba($color, 0.54),
+        icons:             rgba($color, 0.54),
+        text:              rgba($color, 0.87),
+        slider-min:        rgba($color, 0.87),
+        slider-off:        rgba($color, 0.26),
+        slider-off-active: rgba($color, 0.38)
+    );
+};
+
+button.mat-menu-item {
+  line-height: 24px !important;
+}
+a.mat-menu-item > mat-icon {
+  margin-bottom: 14px;
+}
+.mat-icon svg {
+  height: 24px;
+  width: 24px;
+}
+
+@mixin igo-theming($theme, $typography) {
+  @include mat.core($typography);
+
+  @include igo-core-theming($theme, $typography);
+}
+
+/* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
+
+/* position */
+.toast-center-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.toast-top-center {
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+.toast-bottom-center {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}
+.toast-top-full-width {
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+.toast-bottom-full-width {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}
+.toast-top-left {
+  top: 12px;
+  left: 12px;
+}
+.toast-top-right {
+  top: 12px;
+  right: 12px;
+}
+.toast-bottom-right {
+  right: 12px;
+  bottom: 12px;
+}
+.toast-bottom-left {
+  bottom: 12px;
+  left: 12px;
+}
+
+/* toast styles */
+.toast-title {
+  font-weight: bold;
+}
+.toast-message {
+  word-wrap: break-word;
+}
+.toast-message a,
+.toast-message label {
+  color: #FFFFFF;
+}
+.toast-message a:hover {
+  color: #CCCCCC;
+  text-decoration: none;
+}
+.toast-close-button {
+  position: relative;
+  right: -0.3em;
+  top: -0.3em;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-shadow: 0 1px 0 #ffffff;
+  /* opacity: 0.8; */
+}
+.toast-close-button:hover,
+.toast-close-button:focus {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.4;
+}
+/*Additional properties for button version
+ iOS requires the button element instead of an anchor tag.
+ If you want the anchor version, it requires `href="#"`.*/
+button.toast-close-button {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+}
+.toast-container {
+  pointer-events: none;
+  position: fixed;
+  z-index: 999999;
+}
+.toast-container * {
+  box-sizing: border-box;
+}
+.toast-container .ngx-toastr {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 6px;
+  padding: 15px 15px 15px 50px;
+  width: 300px;
+  border-radius: 3px 3px 3px 3px;
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  box-shadow: 0 0 12px #999999;
+  color: #FFFFFF;
+}
+.toast-container .ngx-toastr:hover {
+  box-shadow: 0 0 12px #000000;
+  opacity: 1;
+  cursor: pointer;
+}
+/* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/info-circle.svg */
+.toast-info {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA1MTIgNTEyJyB3aWR0aD0nNTEyJyBoZWlnaHQ9JzUxMic+PHBhdGggZmlsbD0ncmdiKDI1NSwyNTUsMjU1KScgZD0nTTI1NiA4QzExOS4wNDMgOCA4IDExOS4wODMgOCAyNTZjMCAxMzYuOTk3IDExMS4wNDMgMjQ4IDI0OCAyNDhzMjQ4LTExMS4wMDMgMjQ4LTI0OEM1MDQgMTE5LjA4MyAzOTIuOTU3IDggMjU2IDh6bTAgMTEwYzIzLjE5NiAwIDQyIDE4LjgwNCA0MiA0MnMtMTguODA0IDQyLTQyIDQyLTQyLTE4LjgwNC00Mi00MiAxOC44MDQtNDIgNDItNDJ6bTU2IDI1NGMwIDYuNjI3LTUuMzczIDEyLTEyIDEyaC04OGMtNi42MjcgMC0xMi01LjM3My0xMi0xMnYtMjRjMC02LjYyNyA1LjM3My0xMiAxMi0xMmgxMnYtNjRoLTEyYy02LjYyNyAwLTEyLTUuMzczLTEyLTEydi0yNGMwLTYuNjI3IDUuMzczLTEyIDEyLTEyaDY0YzYuNjI3IDAgMTIgNS4zNzMgMTIgMTJ2MTAwaDEyYzYuNjI3IDAgMTIgNS4zNzMgMTIgMTJ2MjR6Jy8+PC9zdmc+");
+}
+/* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/times-circle.svg */
+.toast-error {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA1MTIgNTEyJyB3aWR0aD0nNTEyJyBoZWlnaHQ9JzUxMic+PHBhdGggZmlsbD0ncmdiKDI1NSwyNTUsMjU1KScgZD0nTTI1NiA4QzExOSA4IDggMTE5IDggMjU2czExMSAyNDggMjQ4IDI0OCAyNDgtMTExIDI0OC0yNDhTMzkzIDggMjU2IDh6bTEyMS42IDMxMy4xYzQuNyA0LjcgNC43IDEyLjMgMCAxN0wzMzggMzc3LjZjLTQuNyA0LjctMTIuMyA0LjctMTcgMEwyNTYgMzEybC02NS4xIDY1LjZjLTQuNyA0LjctMTIuMyA0LjctMTcgMEwxMzQuNCAzMzhjLTQuNy00LjctNC43LTEyLjMgMC0xN2w2NS42LTY1LTY1LjYtNjUuMWMtNC43LTQuNy00LjctMTIuMyAwLTE3bDM5LjYtMzkuNmM0LjctNC43IDEyLjMtNC43IDE3IDBsNjUgNjUuNyA2NS4xLTY1LjZjNC43LTQuNyAxMi4zLTQuNyAxNyAwbDM5LjYgMzkuNmM0LjcgNC43IDQuNyAxMi4zIDAgMTdMMzEyIDI1Nmw2NS42IDY1LjF6Jy8+PC9zdmc+");
+}
+/* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/check.svg */
+.toast-success {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA1MTIgNTEyJyB3aWR0aD0nNTEyJyBoZWlnaHQ9JzUxMic+PHBhdGggZmlsbD0ncmdiKDI1NSwyNTUsMjU1KScgZD0nTTE3My44OTggNDM5LjQwNGwtMTY2LjQtMTY2LjRjLTkuOTk3LTkuOTk3LTkuOTk3LTI2LjIwNiAwLTM2LjIwNGwzNi4yMDMtMzYuMjA0YzkuOTk3LTkuOTk4IDI2LjIwNy05Ljk5OCAzNi4yMDQgMEwxOTIgMzEyLjY5IDQzMi4wOTUgNzIuNTk2YzkuOTk3LTkuOTk3IDI2LjIwNy05Ljk5NyAzNi4yMDQgMGwzNi4yMDMgMzYuMjA0YzkuOTk3IDkuOTk3IDkuOTk3IDI2LjIwNiAwIDM2LjIwNGwtMjk0LjQgMjk0LjQwMWMtOS45OTggOS45OTctMjYuMjA3IDkuOTk3LTM2LjIwNC0uMDAxeicvPjwvc3ZnPg==");
+}
+/* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/exclamation-triangle.svg */
+.toast-warning {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA1NzYgNTEyJyB3aWR0aD0nNTc2JyBoZWlnaHQ9JzUxMic+PHBhdGggZmlsbD0ncmdiKDI1NSwyNTUsMjU1KScgZD0nTTU2OS41MTcgNDQwLjAxM0M1ODcuOTc1IDQ3Mi4wMDcgNTY0LjgwNiA1MTIgNTI3Ljk0IDUxMkg0OC4wNTRjLTM2LjkzNyAwLTU5Ljk5OS00MC4wNTUtNDEuNTc3LTcxLjk4N0wyNDYuNDIzIDIzLjk4NWMxOC40NjctMzIuMDA5IDY0LjcyLTMxLjk1MSA4My4xNTQgMGwyMzkuOTQgNDE2LjAyOHpNMjg4IDM1NGMtMjUuNDA1IDAtNDYgMjAuNTk1LTQ2IDQ2czIwLjU5NSA0NiA0NiA0NiA0Ni0yMC41OTUgNDYtNDYtMjAuNTk1LTQ2LTQ2LTQ2em0tNDMuNjczLTE2NS4zNDZsNy40MTggMTM2Yy4zNDcgNi4zNjQgNS42MDkgMTEuMzQ2IDExLjk4MiAxMS4zNDZoNDguNTQ2YzYuMzczIDAgMTEuNjM1LTQuOTgyIDExLjk4Mi0xMS4zNDZsNy40MTgtMTM2Yy4zNzUtNi44NzQtNS4wOTgtMTIuNjU0LTExLjk4Mi0xMi42NTRoLTYzLjM4M2MtNi44ODQgMC0xMi4zNTYgNS43OC0xMS45ODEgMTIuNjU0eicvPjwvc3ZnPg==");
+}
+.toast-container.toast-top-center .ngx-toastr,
+.toast-container.toast-bottom-center .ngx-toastr {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.toast-container.toast-top-full-width .ngx-toastr,
+.toast-container.toast-bottom-full-width .ngx-toastr {
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ngx-toastr {
+  background-color: #030303;
+  pointer-events: auto;
+}
+.toast-success {
+  background-color: #51A351;
+}
+.toast-error {
+  background-color: #BD362F;
+}
+.toast-info {
+  background-color: #2F96B4;
+}
+.toast-warning {
+  background-color: #F89406;
+}
+.toast-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  background-color: #000000;
+  opacity: 0.4;
+}
+/* Responsive Design */
+@media all and (max-width: 240px) {
+  .toast-container .ngx-toastr.div {
+    padding: 8px 8px 8px 50px;
+    width: 11em;
+  }
+  .toast-container .toast-close-button {
+    right: -0.2em;
+    top: -0.2em;
+  }
+}
+@media all and (min-width: 241px) and (max-width: 480px) {
+  .toast-container .ngx-toastr.div {
+    padding: 8px 8px 8px 50px;
+    width: 18em;
+  }
+  .toast-container .toast-close-button {
+    right: -0.2em;
+    top: -0.2em;
+  }
+}
+@media all and (min-width: 481px) and (max-width: 768px) {
+  .toast-container .ngx-toastr.div {
+    padding: 15px 15px 15px 50px;
+    width: 25em;
+  }
+}
+
+
+@mixin igo-core-theming($theme, $typography) {
+  @include igo-message-theming($theme, $typography);
+
+  button.mat-icon-button.mat-button-base[disabled="true"] {
+      color: rgba(0,0,0,.26);
+  }
+}
+
+@mixin igo-message-theming($theme, $typography) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .toast-error {
+    background-color: mat.get-color-from-palette($warn);
+  }
+  .toast-info {
+    background-color: mat.get-color-from-palette($primary);
+  }
+  .toast-title {
+    line-height: 23px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family:  Roboto, "Helvetica Neue", sans-serif;
+  }
+  .toast-message {
+    line-height: 18px;
+    font-size: mat.font-size($typography, subheading-2);
+    font-family:  Roboto, "Helvetica Neue", sans-serif;
+  }
+}
+
+.shepherd-button{background:#3288e6;border:0;border-radius:3px;color:hsla(0,0%,100%,.75);cursor:pointer;margin-right:.5rem;padding:.5rem 1.5rem;transition:all .5s ease}.shepherd-button:not(:disabled):hover{background:#196fcc;color:hsla(0,0%,100%,.75)}.shepherd-button.shepherd-button-secondary{background:#f1f2f3;color:rgba(0,0,0,.75)}.shepherd-button.shepherd-button-secondary:not(:disabled):hover{background:#d6d9db;color:rgba(0,0,0,.75)}.shepherd-button:disabled{cursor:not-allowed}
+.shepherd-footer{border-bottom-left-radius:5px;border-bottom-right-radius:5px;display:flex;justify-content:flex-end;padding:0 .75rem .75rem}.shepherd-footer .shepherd-button:last-child{margin-right:0}
+.shepherd-cancel-icon{background:transparent;border:none;color:hsla(0,0%,50.2%,.75);font-size:2em;cursor:pointer;font-weight:400;margin:0;padding:0;transition:color .5s ease}.shepherd-cancel-icon:hover{color:rgba(0,0,0,.75)}.shepherd-has-title .shepherd-content .shepherd-cancel-icon{color:hsla(0,0%,50.2%,.75)}.shepherd-has-title .shepherd-content .shepherd-cancel-icon:hover{color:rgba(0,0,0,.75)}
+.shepherd-title{color:rgba(0,0,0,.75);display:flex;font-size:1rem;font-weight:400;flex:1 0 auto;margin:0;padding:0}
+.shepherd-header{align-items:center;border-top-left-radius:5px;border-top-right-radius:5px;display:flex;justify-content:flex-end;line-height:2em;padding:.75rem .75rem 0}.shepherd-has-title .shepherd-content .shepherd-header{background:#e6e6e6;padding:1em}
+.shepherd-text{color:rgba(0,0,0,.75);font-size:1rem;line-height:1.3em;padding:.75em}.shepherd-text p{margin-top:0}.shepherd-text p:last-child{margin-bottom:0}
+.shepherd-content{border-radius:5px;outline:none;padding:0}
+.shepherd-element{background:#fff;border-radius:5px;box-shadow:0 1px 4px rgba(0,0,0,.2);max-width:400px;opacity:0;outline:none;transition:opacity .3s,visibility .3s;visibility:hidden;width:100%;z-index:9999}.shepherd-enabled.shepherd-element{opacity:1;visibility:visible}.shepherd-element[data-popper-reference-hidden]:not(.shepherd-centered){opacity:0;pointer-events:none;visibility:hidden}.shepherd-element,.shepherd-element *,.shepherd-element :after,.shepherd-element :before{box-sizing:border-box}.shepherd-arrow,.shepherd-arrow:before{position:absolute;width:16px;height:16px;z-index:-1}.shepherd-arrow:before{content:"";transform:rotate(45deg);background:#fff}.shepherd-element[data-popper-placement^=top]>.shepherd-arrow{bottom:-8px}.shepherd-element[data-popper-placement^=bottom]>.shepherd-arrow{top:-8px}.shepherd-element[data-popper-placement^=left]>.shepherd-arrow{right:-8px}.shepherd-element[data-popper-placement^=right]>.shepherd-arrow{left:-8px}.shepherd-element.shepherd-centered>.shepherd-arrow{opacity:0}.shepherd-element.shepherd-has-title[data-popper-placement^=bottom]>.shepherd-arrow:before{background-color:#e6e6e6}.shepherd-target-click-disabled.shepherd-enabled.shepherd-target,.shepherd-target-click-disabled.shepherd-enabled.shepherd-target *{pointer-events:none}
+.shepherd-modal-overlay-container{height:0;left:0;opacity:0;overflow:hidden;pointer-events:none;position:fixed;top:0;transition:all .3s ease-out,height 0ms .3s,opacity .3s 0ms;width:100vw;z-index:9997}.shepherd-modal-overlay-container.shepherd-modal-is-visible{height:100vh;opacity:.5;transition:all .3s ease-out,height 0s 0s,opacity .3s 0s}.shepherd-modal-overlay-container.shepherd-modal-is-visible path{pointer-events:all}
+
+@mixin igo-common-theming($theme, $typography) {
+  @include igo-action-theming($theme);
+  @include igo-collapsible-theming($theme);
+  @include igo-entity-theming($theme);
+  @include igo-list-theming($theme);
+  @include igo-panel-theming($theme);
+  @include igo-tool-theming($theme);
+  @include igo-tour-theming($theme);
+  @include igo-home-button-theming($theme);
+}
+
+@mixin igo-action-theming($theme) {
+  @include igo-actionbar-theming($theme);
+}
+
+@mixin igo-actionbar-theming($theme) {  
+  .igo-actionbar-overlay {
+    min-width: inherit !important;
+    padding-top: 0;
+    padding-bottom: 0;
+  
+    .mat-list {
+      padding-top: 0
+    }
+  
+    .mat-list .mat-list-item.mat-list-item-with-avatar .mat-list-item-content .mat-list-text {
+      padding-right: 16px;
+    }
+  
+    .mat-menu-content:not(:empty) {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+@mixin igo-collapsible-theming($theme) {
+  mat-icon[mat-list-avatar][igocollapse] {
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.igo-chevron {
+      width: auto !important;
+      transform: rotateZ(0deg);
+      transition: 300ms ease-in-out;
+
+      &.collapsed {
+        transform: rotateZ(180deg);
+        transition: 300ms ease-in-out;
+      }
+    }
+  }
+
+  div.igo-collapsed {
+    display: none !important;
+  }
+
+}
+
+@mixin igo-entity-theming($theme) {
+  @include igo-entity-table-theming($theme);
+}
+
+@mixin igo-entity-table-theming($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  igo-entity-table table.igo-entity-table-with-selection tr.igo-entity-table-row-highlighted {
+    background-color: mat.get-color-from-palette($primary, A100);
+    color: mat.get-color-from-palette($primary, default-contrast);
+  }
+}
+
+@mixin igo-home-button-theming($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $foreground: map-get($theme, foreground);
+
+  igo-home-button > #homeButton {
+    background-color: mat.get-color-from-palette($primary);
+    color: mat.get-color-from-palette($primary, default-contrast);
+
+    &:hover {
+      background-color: mat.get-color-from-palette($accent, lighter);
+      color: black;
+    }
+  }
+}
+
+
+@mixin igo-list-theming($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  igo-list [igolistitem][color="primary"].igo-list-item-selected > mat-list-item {
+    background-color: mat.get-color-from-palette($primary);
+    color: mat.get-color-from-palette($primary, default-contrast);
+  }
+
+  igo-list [igolistitem][color="accent"].igo-list-item-selected > mat-list-item {
+    background-color: mat.get-color-from-palette($accent);
+    color: mat.get-color-from-palette($accent, default-contrast);
+  }
+
+  igo-list [igolistitem].igo-list-item-disabled > mat-list-item {
+    color: rgba(0, 0, 0, 0.38);
+  }
+
+  igo-list [igolistitem][color="primary"]:not(.igo-list-item-disabled):hover > mat-list-item,
+  igo-list [igolistitem][color="primary"].igo-list-item-focused > mat-list-item {
+    background-color: mat.get-color-from-palette($primary, lighter);
+    color: mat.get-color-from-palette($primary, default-contrast);
+  }
+
+  igo-list [igolistitem][color="accent"]:not(.igo-list-item-disabled):hover > mat-list-item,
+  igo-list [igolistitem][color="accent"].igo-list-item-focused > mat-list-item {
+    background-color: mat.get-color-from-palette($accent, lighter);
+    color: mat.get-color-from-palette($accent, default-contrast);
+  }
+}
+
+@mixin igo-panel-theming($theme) {
+  $primary: map-get($theme, primary);
+
+  igo-panel > div.igo-panel-header {
+    background-color: mat.get-color-from-palette($primary);
+    color: mat.get-color-from-palette($primary, default-contrast);
+  }
+
+}
+
+@mixin igo-tool-theming($theme) {
+  @include igo-toolbox-theming($theme);
+}
+
+@mixin igo-toolbox-theming($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $foreground: map-get($theme, foreground);
+
+  igo-toolbox > igo-actionbar mat-list.mat-list-base igo-actionbar-item mat-list-item {
+    &:hover {
+      background-color: mat.get-color-from-palette($accent, lighter);
+    }
+
+    &.tool-activated,
+    &.children-tool-activated {
+      background-color: mat.get-color-from-palette($accent);
+      cursor: default;
+      button {
+        cursor: default;
+      }
+    }
+  }
+
+  igo-toolbox > igo-actionbar:not(.with-title) > mat-list {
+    & > #lowChevron,
+    & > #topChevron {
+      &:hover {
+        background-color: mat.get-color-from-palette($accent, lighter);
+        color: black;
+      }
+    }
+  }
+
+  igo-toolbox.color-primary > igo-actionbar:not(.with-title) {
+    box-shadow: unset;
+    background-color: mat.get-color-from-palette($primary);
+    #lowChevron,
+    #topChevron {
+      background-color: mat.get-color-from-palette($primary);
+      color: white;
+    }
+  }
+
+  igo-toolbox.color-grey > igo-actionbar:not(.with-title) {
+    box-shadow: unset;
+    background-color: #737475;
+    #lowChevron,
+    #topChevron {
+      background-color: #737475;
+      color: white;
+    }
+  }
+
+  igo-toolbox.color-primary,
+  igo-toolbox.color-grey {
+    & > igo-actionbar:not(.with-title) mat-list.mat-list-base {
+      .mat-list-item.mat-list-item-with-avatar {
+        color: white;
+        &:hover {
+          color: black;
+        }
+
+        &.tool-activated,
+        &.children-tool-activated {
+          background-color: white;
+          color: black;
+        }
+      }
+    }
+  }
+
+}
+
+@mixin igo-tour-theming($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  igo-interactive-tour > button.mat-raised-button.tour-button-tool-icon {
+    box-shadow: none;
+  }
+
+  igo-interactive-tour > button.tour-button-tool-icon {
+    background-color: mat.get-color-from-palette($primary);
+    color: mat.get-color-from-palette($primary, default-contrast);
+
+    box-shadow: none;
+    border:none;
+    border-radius: 50%;
+    padding: 0;
+    min-width: 0;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    line-height: 40px;
+  }
+
+  igo-interactive-tour > button.tour-button-tool-icon span.interactive-tour-button-title {
+    display: none;
+  }
+
+  igo-interactive-tour > button.tour-button-tool {
+    background-color: mat.get-color-from-palette($primary);
+    color: mat.get-color-from-palette($primary, default-contrast);
+    border: none;
+  }
+
+  igo-interactive-tour > button.tour-button-tool-icon:hover {
+    background-color: mat.get-color-from-palette($primary, default-contrast);
+    color: mat.get-color-from-palette($primary);
+    cursor: pointer;
+  }
+}
+
+.ol-box {
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1.5px solid rgb(179,197,219);
+  background-color: rgba(255,255,255,0.4);
+}
+
+.ol-mouse-position {
+  top: 8px;
+  right: 8px;
+  position: absolute;
+}
+
+.ol-scale-line {
+  background: rgba(0,60,136,0.3);
+  border-radius: 4px;
+  bottom: 8px;
+  left: 8px;
+  padding: 2px;
+  position: absolute;
+}
+.ol-scale-line-inner {
+  border: 1px solid #eee;
+  border-top: none;
+  color: #eee;
+  font-size: 10px;
+  text-align: center;
+  margin: 1px;
+  will-change: contents, width;
+  transition: all 0.25s;
+}
+.ol-scale-bar {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+}
+.ol-scale-step-marker {
+  width: 1px;
+  height: 15px;
+  background-color: #000000;
+  float: right;
+  z-Index: 10;
+}
+.ol-scale-step-text {
+  position: absolute;
+  bottom: -5px;
+  font-size: 12px;
+  z-Index: 11;
+  color: #000000;
+  text-shadow: -2px 0 #FFFFFF, 0 2px #FFFFFF, 2px 0 #FFFFFF, 0 -2px #FFFFFF;
+}
+.ol-scale-text {
+  position: absolute;
+  font-size: 14px;
+  text-align: center;
+  bottom: 25px;
+  color: #000000;
+  text-shadow: -2px 0 #FFFFFF, 0 2px #FFFFFF, 2px 0 #FFFFFF, 0 -2px #FFFFFF;
+}
+.ol-scale-singlebar {
+  position: relative;
+  height: 10px;
+  z-Index: 9;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+.ol-unsupported {
+  display: none;
+}
+.ol-viewport, .ol-unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.ol-selectable {
+  -webkit-touch-callout: default;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+.ol-grabbing {
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+}
+.ol-grab {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}
+.ol-control {
+  position: absolute;
+  background-color: rgba(255,255,255,0.4);
+  border-radius: 4px;
+  padding: 2px;
+}
+.ol-control:hover {
+  background-color: rgba(255,255,255,0.6);
+}
+.ol-zoom {
+  top: .5em;
+  left: .5em;
+}
+.ol-rotate {
+  top: .5em;
+  right: .5em;
+  transition: opacity .25s linear, visibility 0s linear;
+}
+.ol-rotate.ol-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s linear, visibility 0s linear .25s;
+}
+.ol-zoom-extent {
+  top: 4.643em;
+  left: .5em;
+}
+.ol-full-screen {
+  right: .5em;
+  top: .5em;
+}
+
+.ol-control button {
+  display: block;
+  margin: 1px;
+  padding: 0;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: inherit;
+  text-align: center;
+  height: 1.375em;
+  width: 1.375em;
+  line-height: .4em;
+  background-color: rgba(0,60,136,0.5);
+  border: none;
+  border-radius: 2px;
+}
+.ol-control button::-moz-focus-inner {
+  border: none;
+  padding: 0;
+}
+.ol-zoom-extent button {
+  line-height: 1.4em;
+}
+.ol-compass {
+  display: block;
+  font-weight: normal;
+  font-size: 1.2em;
+  will-change: transform;
+}
+.ol-touch .ol-control button {
+  font-size: 1.5em;
+}
+.ol-touch .ol-zoom-extent {
+  top: 5.5em;
+}
+.ol-control button:hover,
+.ol-control button:focus {
+  text-decoration: none;
+  background-color: rgba(0,60,136,0.7);
+}
+.ol-zoom .ol-zoom-in {
+  border-radius: 2px 2px 0 0;
+}
+.ol-zoom .ol-zoom-out {
+  border-radius: 0 0 2px 2px;
+}
+
+
+.ol-attribution {
+  text-align: right;
+  bottom: .5em;
+  right: .5em;
+  max-width: calc(100% - 1.3em);
+  display: flex;
+  flex-flow: row-reverse;
+  align-items: center;
+}
+.ol-attribution a {
+  color: rgba(0,60,136,0.7);
+  text-decoration: none;
+}
+.ol-attribution ul {
+  margin: 0;
+  padding: 1px .5em;
+  color: #000;
+  text-shadow: 0 0 2px #fff;
+  font-size: 12px;
+}
+.ol-attribution li {
+  display: inline;
+  list-style: none;
+}
+.ol-attribution li:not(:last-child):after {
+  content: " ";
+}
+.ol-attribution img {
+  max-height: 2em;
+  max-width: inherit;
+  vertical-align: middle;
+}
+.ol-attribution button {
+  flex-shrink: 0;
+}
+.ol-attribution.ol-collapsed ul {
+  display: none;
+}
+.ol-attribution:not(.ol-collapsed) {
+  background: rgba(255,255,255,0.8);
+}
+.ol-attribution.ol-uncollapsible {
+  bottom: 0;
+  right: 0;
+  border-radius: 4px 0 0;
+}
+.ol-attribution.ol-uncollapsible img {
+  margin-top: -.2em;
+  max-height: 1.6em;
+}
+.ol-attribution.ol-uncollapsible button {
+  display: none;
+}
+
+.ol-zoomslider {
+  top: 4.5em;
+  left: .5em;
+  height: 200px;
+}
+.ol-zoomslider button {
+  position: relative;
+  height: 10px;
+}
+
+.ol-touch .ol-zoomslider {
+  top: 5.5em;
+}
+
+.ol-overviewmap {
+  left: 0.5em;
+  bottom: 0.5em;
+}
+.ol-overviewmap.ol-uncollapsible {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 4px 0 0;
+}
+.ol-overviewmap .ol-overviewmap-map,
+.ol-overviewmap button {
+  display: block;
+}
+.ol-overviewmap .ol-overviewmap-map {
+  border: 1px solid #7b98bc;
+  height: 150px;
+  margin: 2px;
+  width: 150px;
+}
+.ol-overviewmap:not(.ol-collapsed) button {
+  bottom: 2px;
+  left: 2px;
+  position: absolute;
+}
+.ol-overviewmap.ol-collapsed .ol-overviewmap-map,
+.ol-overviewmap.ol-uncollapsible button {
+  display: none;
+}
+.ol-overviewmap:not(.ol-collapsed) {
+  background: rgba(255,255,255,0.8);
+}
+.ol-overviewmap-box {
+  border: 2px dotted rgba(0,60,136,0.7);
+}
+
+.ol-overviewmap .ol-overviewmap-box:hover {
+  cursor: move;
+}
+
+
+@mixin igo-geo-theming($theme, $typography) {
+  @include igo-drawingTool-theming($theme, $typography);
+  @include igo-feature-theming($theme);
+  @include igo-filter-theming($theme, $typography);
+  @include igo-layer-theming($theme);
+  @include igo-map-theming($theme, $typography);
+  @include igo-measure-theming($theme, $typography);
+  @include igo-directions-theming($theme);
+  @include igo-workspace-theming($theme, $typography);
+}
+
+@mixin igo-directions-theming($theme) {
+  @include igo-directions-results-theming($theme);
+}
+
+@mixin igo-directions-results-theming($theme) {
+  $accent: map-get($theme, accent);
+
+  igo-directions-results mat-list-item.igo-steps:hover {
+    background-color: mat.get-color-from-palette($accent, lighter);
+  }
+}
+
+@mixin igo-drawingTool-theming($theme, $typography) {
+  @include igo-draw-theming($theme, $typography);
+}
+
+@mixin igo-draw-theming($theme, $typography) {
+    $foreground: map-get($theme, foreground);
+  
+    .igo-map-tooltip {
+      position: relative;
+      border-radius: 4px;
+      padding: 4px 8px;
+      white-space: nowrap;
+    }
+  
+    .igo-map-tooltip-draw {
+      color: mat.get-color-from-palette($foreground, text);
+      font-weight: bold;
+      font-size: mat.font-size($typography, subheading-2);
+    }
+    
+    igo-draw-popup-component {
+      h1 {
+        font-size: mat.font-size($typography, display-1);
+        font-family:  Roboto, "Helvetica Neue", sans-serif;
+      }
+    }
+ }
+
+@mixin igo-feature-theming($theme) {
+  @include igo-feature-details-theming($theme);
+}
+
+@mixin igo-feature-details-theming($theme) {
+  $is-dark: map-get($theme, is-dark);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  igo-feature-details > table.igo-striped tbody tr:nth-child(odd) {
+    background-color: mat.get-color-from-palette($background, if($is-dark, app-bar, status-bar));
+    color: black;
+  }
+
+}
+
+@mixin igo-filter-theming($theme, $typography) {
+  @include igo-time-filter-form-theming($theme);
+  @include igo-ogc-filter-time-slider-theming($theme);
+  @include igo-ogc-filter-selection-theming($theme);
+}
+
+@mixin igo-ogc-filter-selection-theming($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $dark: mat.define-palette(mat.$grey-palette, 800, 700, 900);
+
+  mat-button-toggle.mat-button-toggle-checked {
+    background-color: mat.get-color-from-palette($accent);
+    color: mat.get-color-from-palette($dark);
+  }
+
+  mat-button-toggle {
+    color: black !important;
+  }
+}
+
+@mixin igo-ogc-filter-time-slider-theming($theme) {
+    $primary: map-get($theme, primary);    
+    $color: mat.define-palette(mat.$yellow-palette);
+
+    .mat-slider-thumb-label {
+        transform: rotate(45deg) !important;
+        border-radius: 50% 50% 0 !important;
+      }
+  }
+
+@mixin igo-time-filter-form-theming($theme) {
+  $primary: map-get($theme, primary);
+
+  mat-datetimepicker-calendar > div.mat-datetimepicker-calendar-header {
+    color: mat.get-color-from-palette($primary);
+  }
+
+  mat-datetimepicker-calendar > div.mat-datetimepicker-calendar-content .mat-datetimepicker-calendar-body-active {
+    background-color: mat.get-color-from-palette($primary, lighter);
+    border-radius: 100%;
+  }
+}
+
+@mixin igo-layer-theming($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  @include igo-layer-legend-theming($theme);
+
+  igo-layer-item.igo-layer-item-focused > mat-list-item {
+    background-color: mat.get-color-from-palette($accent, lighter);
+    color: mat.get-color-from-palette($primary, default-contrast);
+  }
+
+  .mat-menu-opacity-slider{
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.5), 0 4px 5px 0 rgba(0,0,0,.15), 0 1px 10px 0 rgba(0,0,0,.4)
+  }
+}
+
+@mixin igo-layer-legend-theming($theme) {
+  $primary: map-get($theme, primary);
+
+  igo-layer-legend img:after {
+    border-top-color: mat.get-color-from-palette($primary);
+  }
+}
+
+@mixin igo-map-theming($theme, $typography) {
+  @include igo-map-browser-theming($theme, $typography);
+  @include igo-zoom-button-theming($theme);
+  @include igo-menu-button-theming($theme);
+}
+
+@mixin igo-map-browser-theming($theme, $typography) {
+  $primary: map-get($theme, primary);
+  $is-dark: map-get($theme, is-dark);
+
+  igo-map-browser div.ol-attribution > button {
+    color: mat.get-color-from-palette($primary, if($is-dark, default-contrast, default));
+    background-color: mat.get-color-from-palette(
+      $primary,
+      if($is-dark, default, default-contrast)
+    );
+  }
+
+  igo-map-browser div.ol-attribution > ul {
+    font-size: mat.font-size($typography, body-1);
+  }
+}
+
+@mixin igo-zoom-button-theming($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $is-dark: map-get($theme, is-dark);
+
+  igo-zoom-button > div.igo-zoom-button-container > button {
+    &.mat-primary {
+      color: mat.get-color-from-palette($primary, if($is-dark, default-contrast, default));
+      background-color: mat.get-color-from-palette($primary, if($is-dark, default, default-contrast));
+    }
+
+    &.mat-accent {
+      color: mat.get-color-from-palette($accent, if($is-dark, default-contrast, default));
+      background-color: mat.get-color-from-palette($accent, if($is-dark, default, default-contrast));
+    }
+  }
+
+}
+
+@mixin igo-menu-button-theming($theme) {
+  $primary: map-get($theme, primary);
+
+  igo-menu-button > #menu-button {
+    color: mat.get-color-from-palette($primary);
+  }
+
+  igo-menu-button > #menu-button.menu-button-reverse-color-close {
+    background-color: mat.get-color-from-palette($primary);
+    color: mat.get-color-from-palette($primary, default-contrast);
+  }
+
+  igo-menu-button > #menu-button.menu-button-reverse-color {
+    background-color: mat.get-color-from-palette($primary);
+    color: mat.get-color-from-palette($primary, default-contrast);
+  }
+}
+
+
+@mixin igo-measure-theming($theme, $typography) {
+  @include igo-measurer-theming($theme, $typography);
+}
+
+@mixin igo-measurer-theming($theme, $typography) {
+  $foreground: map-get($theme, foreground);
+
+  .igo-map-tooltip {
+    position: relative;
+    border-radius: 4px;
+    padding: 4px 8px;
+    white-space: nowrap;
+  }
+
+  .igo-map-tooltip-measure {
+    background-color: rgba(255, 204, 51, 0.7);
+    border: 1px solid rgb(255, 205, 51);
+    color: black;
+    font-weight: bold;
+    font-size: mat.font-size($typography, subheading-2);
+  }
+  .igo-map-tooltip-hidden {
+    display: none;
+  }
+  .igo-map-tooltip-measure-by-display{
+    display: none;
+  }
+}
+
+@mixin igo-workspace-theming($theme, $typography) {
+  @include igo-confirmation-popup-theming($theme, $typography);
+}
+
+@mixin igo-confirmation-popup-theming($theme, $typography) {
+    $foreground: map-get($theme, foreground);
+
+    igo-confirmation-popup-component {
+      h1 {
+        font-size: mat.font-size($typography, display-1);
+        font-family:  Roboto, "Helvetica Neue", sans-serif;
+      }
+    }
+ }
+
+.blue-theme {
+    $primary: mat.define-palette(mat.$blue-palette, 700, 400, 900);
+    $accent: mat.define-palette(mat.$blue-palette, 200);
+    $warn: mat.define-palette(mat.$red-palette);
+
+    $temp-theme: mat.define-light-theme((
+        color: (
+            primary: $primary,
+            accent: $accent,
+            warn: $warn
+        )
+    ));
+
+    $foreground: theme-foreground(mat.define-palette(mat.$grey-palette, 900));
+    $theme: map-merge($temp-theme, (foreground: $foreground));
+
+    @include igo-all-theming($theme);
+    @include mat.all-component-colors($theme);
+}
+
+.bluedq-theme {
+    $dq-palette: (
+        50 : #e3eaec,
+        100 : #b9cad0,
+        200 : #8ba7b1,
+        300 : #5c8391,
+        400 : #39697a,
+        500 : #164e62,
+        600 : #13475a,
+        700 : #103d50,
+        800 : #0c3546,
+        900 : #062534,
+        A100 : #6dc6ff,
+        A200 : #3ab2ff,
+        A400 : #079eff,
+        A700 : #0090ec,
+        contrast: (
+            50 : #000000,
+            100 : #000000,
+            200 : #000000,
+            300 : #ffffff,
+            400 : #ffffff,
+            500 : #ffffff,
+            600 : #ffffff,
+            700 : #ffffff,
+            800 : #ffffff,
+            900 : #ffffff,
+            A100 : #000000,
+            A200 : #000000,
+            A400 : #ffffff,
+            A700 : #ffffff,
+        )
+    );
+
+    $primary: mat.define-palette($dq-palette, 500);
+    $accent: mat.define-palette($dq-palette, 200);
+    $warn: mat.define-palette(mat.$red-palette);
+
+    $temp-theme: mat.define-light-theme((
+        color: (
+            primary: $primary,
+            accent: $accent,
+            warn: $warn
+        )
+    ));
+
+    $foreground: theme-foreground(mat.define-palette(mat.$grey-palette, 900));
+    $theme: map-merge($temp-theme, (foreground: $foreground));
+
+    @include igo-all-theming($theme);
+    @include mat.all-component-colors($theme);
+}
+
+.bluegrey-theme {
+    $primary: mat.define-palette(mat.$blue-grey-palette);
+    $accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+    $warn: mat.define-palette(mat.$deep-orange-palette);
+
+    $theme: mat.define-light-theme((
+        color: (
+            primary: $primary,
+            accent: $accent,
+            warn: $warn
+        )
+    ));
+
+    @include igo-all-theming($theme);
+    @include mat.all-component-colors($theme);
+}
+
+.deeppurple-theme {
+    $primary: mat.define-palette(mat.$deep-purple-palette);
+    $accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
+    $warn: mat.define-palette(mat.$red-palette);
+
+    $theme: mat.define-light-theme((
+        color: (
+            primary: $primary,
+            accent: $accent,
+            warn: $warn
+        )
+    ));
+
+    @include igo-all-theming($theme);
+    @include mat.all-component-colors($theme);
+}
+
+.indigo-theme {
+    $primary: mat.define-palette(mat.$indigo-palette);
+    $accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+    $warn: mat.define-palette(mat.$red-palette);
+
+    $theme: mat.define-light-theme((
+        color: (
+            primary: $primary,
+            accent: $accent,
+            warn: $warn
+        )
+    ));
+
+    @include igo-all-theming($theme);
+    @include mat.all-component-colors($theme);
+}
+
+.orange-theme {
+    $primary: mat.define-palette(mat.$orange-palette, 800);
+    $accent: mat.define-palette(mat.$light-blue-palette, 600, 100, 800);
+    $warn: mat.define-palette(mat.$red-palette, 600);
+
+    $theme: mat.define-light-theme((
+        color: (
+            primary: $primary,
+            accent: $accent,
+            warn: $warn
+        )
+    ));
+
+    @include igo-all-theming($theme);
+    @include mat.all-component-colors($theme);
+}
+
+.dark-theme {
+    $primary: mat.define-palette(mat.$blue-grey-palette);
+    $accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+    $warn: mat.define-palette(mat.$deep-orange-palette);
+
+    $theme: mat.define-dark-theme((
+        color: (
+            primary: $primary,
+            accent: $accent,
+            warn: $warn
+        )
+    ));
+
+    @include igo-all-theming($theme);
+    @include mat.all-component-colors($theme);
+}
+
+.teal-theme {
+    $primary: mat.define-palette(mat.$teal-palette, 600, 400, 900);
+    $accent: mat.define-palette(mat.$teal-palette, 400);
+    $warn: mat.define-palette(mat.$red-palette);
+
+    $theme: mat.define-light-theme((
+        color: (
+            primary: $primary,
+            accent: $accent,
+            warn: $warn
+        )
+    ));
+
+    @include igo-all-theming($theme);
+    @include mat.all-component-colors($theme);
+}

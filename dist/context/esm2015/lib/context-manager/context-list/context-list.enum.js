@@ -1,0 +1,7 @@
+export var ContextListControlsEnum;
+(function (ContextListControlsEnum) {
+    ContextListControlsEnum["always"] = "always";
+    ContextListControlsEnum["never"] = "never";
+    ContextListControlsEnum["default"] = "default";
+})(ContextListControlsEnum || (ContextListControlsEnum = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29udGV4dC1saXN0LmVudW0uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi9wYWNrYWdlcy9jb250ZXh0L3NyYy9saWIvY29udGV4dC1tYW5hZ2VyL2NvbnRleHQtbGlzdC9jb250ZXh0LWxpc3QuZW51bS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxNQUFNLENBQU4sSUFBWSx1QkFJWDtBQUpELFdBQVksdUJBQXVCO0lBQ2pDLDRDQUFpQixDQUFBO0lBQ2pCLDBDQUFlLENBQUE7SUFDZiw4Q0FBbUIsQ0FBQTtBQUNyQixDQUFDLEVBSlcsdUJBQXVCLEtBQXZCLHVCQUF1QixRQUlsQyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBlbnVtIENvbnRleHRMaXN0Q29udHJvbHNFbnVtIHtcbiAgYWx3YXlzID0gJ2Fsd2F5cycsXG4gIG5ldmVyID0gJ25ldmVyJyxcbiAgZGVmYXVsdCA9ICdkZWZhdWx0J1xufVxuIl19

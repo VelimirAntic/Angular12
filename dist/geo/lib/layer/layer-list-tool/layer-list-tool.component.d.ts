@@ -1,0 +1,32 @@
+import { OnInit, EventEmitter, OnDestroy } from '@angular/core';
+import { FloatLabelType } from '@angular/material/form-field';
+import { BehaviorSubject, Subscription } from 'rxjs';
+import { LayerListControlsOptions } from './layer-list-tool.interface';
+import * as i0 from "@angular/core";
+export declare class LayerListToolComponent implements OnInit, OnDestroy {
+    onlyVisible$: BehaviorSubject<boolean>;
+    sortAlpha$: BehaviorSubject<boolean>;
+    term$: BehaviorSubject<string>;
+    onlyVisible$$: Subscription;
+    sortAlpha$$: Subscription;
+    term$$: Subscription;
+    layersAreAllVisible: boolean;
+    floatLabel: FloatLabelType;
+    set onlyVisible(value: boolean);
+    get onlyVisible(): boolean;
+    set sortAlpha(value: boolean);
+    get sortAlpha(): boolean;
+    set term(value: string);
+    get term(): string;
+    selectionMode: boolean;
+    appliedFilterAndSort: EventEmitter<LayerListControlsOptions>;
+    selection: EventEmitter<boolean>;
+    ngOnInit(): void;
+    ngOnDestroy(): void;
+    clearTerm(): void;
+    toggleSortAlpha(): void;
+    toggleOnlyVisible(): void;
+    toggleSelectionMode(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<LayerListToolComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<LayerListToolComponent, "igo-layer-list-tool", never, { "layersAreAllVisible": "layersAreAllVisible"; "floatLabel": "floatLabel"; "onlyVisible": "onlyVisible"; "sortAlpha": "sortAlpha"; "term": "term"; }, { "appliedFilterAndSort": "appliedFilterAndSort"; "selection": "selection"; }, never, never>;
+}

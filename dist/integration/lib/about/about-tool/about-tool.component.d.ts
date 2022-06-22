@@ -1,0 +1,34 @@
+import { ChangeDetectorRef, OnInit } from '@angular/core';
+import { ConfigService, LanguageService, Version } from '@igo2/core';
+import type { Observable } from 'rxjs';
+import { AuthService } from '@igo2/auth';
+import { HttpClient } from '@angular/common/http';
+import * as i0 from "@angular/core";
+export declare class AboutToolComponent implements OnInit {
+    configService: ConfigService;
+    auth: AuthService;
+    private http;
+    private cdRef;
+    private languageService;
+    get headerHtml(): string;
+    set headerHtml(value: string);
+    get html(): string;
+    set html(value: string);
+    private _discoverTitleInLocale;
+    discoverTitleInLocale$: Observable<string>;
+    get discoverTitleInLocale(): string;
+    set discoverTitleInLocale(value: string);
+    trainingGuideURLs: any;
+    version: Version;
+    private _html;
+    private _headerHtml;
+    private baseUrlProfil;
+    private baseUrlGuide;
+    loading: boolean;
+    constructor(configService: ConfigService, auth: AuthService, http: HttpClient, cdRef: ChangeDetectorRef, languageService: LanguageService);
+    ngOnInit(): void;
+    openGuide(guide?: any): void;
+    formatFileName(name: string): string;
+    static ɵfac: i0.ɵɵFactoryDeclaration<AboutToolComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<AboutToolComponent, "igo-about-tool", never, { "headerHtml": "headerHtml"; "html": "html"; "discoverTitleInLocale": "discoverTitleInLocale"; "trainingGuideURLs": "trainingGuideURLs"; }, {}, never, never>;
+}

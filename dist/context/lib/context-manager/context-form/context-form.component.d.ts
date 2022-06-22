@@ -1,0 +1,31 @@
+import { EventEmitter, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MessageService, LanguageService } from '@igo2/core';
+import { Context } from '../shared/context.interface';
+import * as i0 from "@angular/core";
+export declare class ContextFormComponent implements OnInit {
+    private formBuilder;
+    private languageService;
+    private messageService;
+    form: FormGroup;
+    prefix: string;
+    get btnSubmitText(): string;
+    set btnSubmitText(value: string);
+    private _btnSubmitText;
+    get context(): Context;
+    set context(value: Context);
+    private _context;
+    get disabled(): boolean;
+    set disabled(value: boolean);
+    private _disabled;
+    submitForm: EventEmitter<any>;
+    clone: EventEmitter<any>;
+    delete: EventEmitter<any>;
+    constructor(formBuilder: FormBuilder, languageService: LanguageService, messageService: MessageService);
+    ngOnInit(): void;
+    handleFormSubmit(value: any): void;
+    copyTextToClipboard(): void;
+    private buildForm;
+    static ɵfac: i0.ɵɵFactoryDeclaration<ContextFormComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<ContextFormComponent, "igo-context-form", never, { "btnSubmitText": "btnSubmitText"; "context": "context"; "disabled": "disabled"; }, { "submitForm": "submitForm"; "clone": "clone"; "delete": "delete"; }, never, never>;
+}

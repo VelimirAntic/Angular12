@@ -1,0 +1,31 @@
+import { OnInit, OnDestroy, EventEmitter } from '@angular/core';
+import { Layer } from '../shared';
+import { BehaviorSubject, ReplaySubject } from 'rxjs';
+import * as i0 from "@angular/core";
+export declare class LayerLegendListComponent implements OnInit, OnDestroy {
+    orderable: boolean;
+    hasVisibleOrInRangeLayers$: BehaviorSubject<boolean>;
+    hasVisibleAndNotInRangeLayers$: BehaviorSubject<boolean>;
+    layersInUi$: BehaviorSubject<Layer[]>;
+    layers$: BehaviorSubject<Layer[]>;
+    showAllLegend: boolean;
+    change$: ReplaySubject<void>;
+    private change$$;
+    set layers(value: Layer[]);
+    get layers(): Layer[];
+    private _layers;
+    excludeBaseLayers: boolean;
+    updateLegendOnResolutionChange: boolean;
+    allowShowAllLegends: boolean;
+    showAllLegendsValue: boolean;
+    allLegendsShown: EventEmitter<boolean>;
+    constructor();
+    ngOnInit(): void;
+    ngOnDestroy(): void;
+    private next;
+    private computeShownLayers;
+    private sortLayersByZindex;
+    toggleShowAllLegends(toggle: boolean): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<LayerLegendListComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<LayerLegendListComponent, "igo-layer-legend-list", never, { "layers": "layers"; "excludeBaseLayers": "excludeBaseLayers"; "updateLegendOnResolutionChange": "updateLegendOnResolutionChange"; "allowShowAllLegends": "allowShowAllLegends"; "showAllLegendsValue": "showAllLegendsValue"; }, { "allLegendsShown": "allLegendsShown"; }, never, never>;
+}

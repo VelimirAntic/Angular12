@@ -1,0 +1,35 @@
+import { BehaviorSubject } from 'rxjs';
+import { IgoMap } from '../../map/shared/map';
+import { PrintOptions } from '../shared/print.interface';
+import { PrintOutputFormat, PrintPaperFormat, PrintOrientation, PrintResolution, PrintSaveImageFormat, PrintLegendPosition } from '../shared/print.type';
+import { PrintService } from '../shared/print.service';
+import * as i0 from "@angular/core";
+export declare class PrintComponent {
+    private printService;
+    disabled$: BehaviorSubject<boolean>;
+    get map(): IgoMap;
+    set map(value: IgoMap);
+    private _map;
+    get outputFormat(): PrintOutputFormat;
+    set outputFormat(value: PrintOutputFormat);
+    private _outputFormat;
+    get paperFormat(): PrintPaperFormat;
+    set paperFormat(value: PrintPaperFormat);
+    private _paperFormat;
+    get orientation(): PrintOrientation;
+    set orientation(value: PrintOrientation);
+    private _orientation;
+    get imageFormat(): PrintSaveImageFormat;
+    set imageFormat(value: PrintSaveImageFormat);
+    private _imageFormat;
+    get legendPosition(): PrintLegendPosition;
+    set legendPosition(value: PrintLegendPosition);
+    private _legendPosition;
+    get resolution(): PrintResolution;
+    set resolution(value: PrintResolution);
+    private _resolution;
+    constructor(printService: PrintService);
+    handleFormSubmit(data: PrintOptions): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<PrintComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<PrintComponent, "igo-print", never, { "map": "map"; "outputFormat": "outputFormat"; "paperFormat": "paperFormat"; "orientation": "orientation"; "imageFormat": "imageFormat"; "legendPosition": "legendPosition"; "resolution": "resolution"; }, {}, never, never>;
+}
