@@ -1,0 +1,38 @@
+@import '../../../../../core/src/style/partial/media';
+@import '../../../../../common/src/style/partial/common.variables';
+
+:host {
+  overflow: hidden;
+}
+
+mat-list-item ::ng-deep .mat-list-item-content .layerCheck {
+  align-self: baseline;
+  width: 16px;
+  padding-right: 0px;
+}
+
+.igo-layer-list-item {
+  height: $igo-list-item-height;
+  clear: both;
+}
+
+.igo-layer-title {
+  cursor: pointer;
+}
+
+.igo-layer-legend-container {
+  padding-left: 18px;
+  width: calc(100% - 18px);
+}
+
+mat-icon.disabled {
+  color: rgba(0, 0, 0, 0.38);
+}
+
+mat-icon[matBadge] ::ng-deep .mat-badge-content {
+  font-size: 12px;
+}
+
+.selection-eye {
+  padding-right: 45px;
+}

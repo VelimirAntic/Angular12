@@ -1,0 +1,5 @@
+@mixin igo-filter-theming($theme, $typography) {
+  @include igo-time-filter-form-theming($theme);
+  @include igo-ogc-filter-time-slider-theming($theme);
+  @include igo-ogc-filter-selection-theming($theme);
+}

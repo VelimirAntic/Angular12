@@ -1,0 +1,47 @@
+{
+  "name": "@igo2/geo",
+  "version": "1.11.1",
+  "description": "IGO Library",
+  "author": "MSP",
+  "keywords": ["igo"],
+  "license": "MIT",
+  "homepage": "https://github.com/infra-geo-ouverte/igo2-lib#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infra-geo-ouverte/igo2-lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/infra-geo-ouverte/igo2-lib/issues"
+  },
+  "dependencies": {
+    "ts-cacheable": "^1.0.5",
+    "ts-md5": "^1.2.4",
+    "@turf/helpers": "^6.5.0",
+    "@turf/line-intersect": "^6.5.0",
+    "@turf/point-on-feature": "^6.5.0",
+    "tslib": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@angular/animations": "^12.2.9",
+    "@angular/common": "^12.2.9",
+    "@angular/core": "^12.2.9",
+    "@angular/forms": "^12.2.9",
+    "@angular/material": "^12.2.9",
+    "@igo2/common": "^1.11.1",
+    "@igo2/core": "^1.11.1",
+    "@igo2/utils": "^1.11.1",
+    "ol": "^6.8.1",
+    "proj4": "^2.7.5",
+    "rxjs": "^6.6.7",
+    "ol-mapbox-style": "^6.4.1",
+    "striptags": "^3.2.0"
+  },
+  "optionalDependencies": {
+    "file-saver": "^2.0.2",
+    "html2canvas": "^1.0.0-rc.5",
+    "jspdf": "^2.3.1",
+    "jszip": "^3.1.5",
+    "moment": "^2.24.0",
+    "stream": "^0.0.2"
+  }
+}

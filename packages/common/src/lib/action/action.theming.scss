@@ -1,0 +1,3 @@
+@mixin igo-action-theming($theme) {
+  @include igo-actionbar-theming($theme);
+}

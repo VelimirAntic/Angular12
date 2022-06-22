@@ -1,0 +1,3 @@
+@mixin igo-entity-theming($theme) {
+  @include igo-entity-table-theming($theme);
+}

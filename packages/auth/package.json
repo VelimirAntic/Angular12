@@ -1,0 +1,34 @@
+{
+  "name": "@igo2/auth",
+  "version": "1.11.1",
+  "description": "IGO Library",
+  "author": "MSP",
+  "keywords": ["igo"],
+  "license": "MIT",
+  "homepage": "https://github.com/infra-geo-ouverte/igo2-lib#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infra-geo-ouverte/igo2-lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/infra-geo-ouverte/igo2-lib/issues"
+  },
+  "dependencies": {
+    "jwt-decode": "^2.2.0",
+    "ts-cacheable": "^1.0.5",
+    "ts-md5": "^1.2.4",
+    "tslib": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@angular/cdk": "^12.2.9",
+    "@angular/common": "^12.2.9",
+    "@angular/core": "^12.2.9",
+    "@angular/forms": "^12.2.9",
+    "@angular/material": "^12.2.9",
+    "@igo2/core": "^1.11.1",
+    "@igo2/utils": "^1.11.1",
+    "rxjs": "^6.6.7",
+    "@azure/msal-angular": "^2.0.0",
+    "@azure/msal-browser": "^2.14.2"
+  }
+}
